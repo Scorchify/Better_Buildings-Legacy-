@@ -1,26 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MCPS Website</title>
     <link rel="stylesheet" href="stylehomepage.css">
-
     <style>
-      h1 {
-        font-weight: bold; 
-        font-size: 90px;
-        font-family:'Times New Roman', Times, serif;
-        color:rgb(0, 0, 0)
-      }
+        :root {
+            --background-light: #e7e6ef;
+            --background-dark: #111019;
+            --text-light: #111014;
+            --text-dark: #ECEBEF;
+            --link-light: #111014;
+            --link-dark: #ECEBEF;
+            --button-background-light: #4a32b3;
+            --button-background-dark: #644ccd;
+            --button-text-light: #111014;
+            --button-text-dark: #ecebef;
+            --bottom-panel-light: #9285d1;
+            --bottom-panel-dark: #3b2e7a;
+        }
 
-      p1 {
-        font-size: 20px;
-        font-family:'Times New Roman', Times, serif;
-        color: rgb(0, 0, 0); 
-      }
+        body {
+            background-color: var(--background-light);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
 
+        h1 {
+            font-weight: bold; 
+            font-size: 90px;
+        }
 
+        p1 {
+            font-size: 20px;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 10px;
+            margin: 10px;
+            flex-wrap: wrap;
+        }
+
+        .styled-button {
+            background-color: var(--button-background-light);
+            color: var(--button-text-light);
+            border-radius: 4px;
+            height: 30px;
+            width: 100px;
+            font-size: 14px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border: none;
+            cursor: pointer;
+            flex: 1;
+            max-width: 100px;
+        }
+
+        .colored-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .colored-box2 {
+            text-align: center;
+        }
+
+        .top-right-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .colored-box {
+            width: 100%;
+            height: 175px;
+            background-color: var(--bottom-panel-light);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .bug-reporting p,
+        .dev-logs p,
+        .about-us p {
+            color: var(--text-light);
+            font-family: Ubuntu;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .bug-reporting a,
+        .dev-logs a,
+        .about-us a {
+            color: var(--link-light);
+            text-decoration: none;
+        }
+
+        .dark-mode .styled-button {
+            background-color: var(--button-background-dark);
+            color: var(--button-text-dark);
+        }
+
+        .dark-mode .colored-box {
+            background-color: var(--bottom-panel-dark);
+        }
+
+        .dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        .dark-mode .bug-reporting p,
+        .dark-mode .dev-logs p,
+        .dark-mode .about-us p {
+            color: var(--text-dark);
+        }
+
+        .dark-mode .bug-reporting a,
+        .dark-mode .dev-logs a,
+        .dark-mode .about-us a {
+            color: var(--link-dark);
+        }
+
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .styled-button {
+                width: auto;
+                flex: 1 1 auto;
+            }
+
+            .colored-container {
+                width: 100%;
+            }
+
+            .colored-box {
+                height: 150px;
+            }
+
+            .bug-reporting p,
+            .dev-logs p,
+            .about-us p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .styled-button {
+                font-size: 12px;
+            }
+
+            .bug-reporting p,
+            .dev-logs p,
+            .about-us p {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -31,13 +172,13 @@
         <a style="text-decoration:none" href="m.html">
             <button class="styled-button">Terms</button>
         </a>
-
-        <a style = "text-decoration:none" href = "signIn.html">
-            <button class="styled-button">Sign Up/Sign In</button>
+        <a style="text-decoration:none" href="signIn.html">
+            <button class="styled-button">Sign Up</button>
         </a>
+        <button class="styled-button" onclick="toggleDarkMode()">Toggle Mode</button>
     </div>
     <a href="https://www2.montgomeryschoolsmd.org" target="blank">
-        <img src="https://i.postimg.cc/RVNQJfj4/BETTER-BUILDING-APP.png" alt="MCPS" width="150" height="200" class="top-right-image"> 
+        <img src="https://i.postimg.cc/52HSXdns/MCPS.png" alt="MCPS" width="100px" height="100" class="top-right-image"> 
     </a>
     <div class="colored-box">
         <div class="bug-reporting">
@@ -50,24 +191,20 @@
             </div>
         </div>
     </div>
-
-    <div class = "colored-container">
-       <div class="colored-box2">
-        <h1> MCPS Better Building Website:</h1>
-        <p1>How to use the Better Building Website:</p1>
-            
-            <br> <br><br>Don't just settle for an environment that doesn't fully support you. Empower yourself to make a difference by using the Better Building App. Your reports matter, and they will lead to tangible improvements that benefit everyone. Together, we can create a school environment that's not only conducive to learning but also promotes comfort and well-being. Download the Better Building App today and be a catalyst for positive change! </p1>
-            
-        
-
-
-
+    <div class="colored-container">
+        <div class="colored-box2">
+            <h1>Better Buildings</h1>
+            <p1>How to use the Better Building Website:</p1>
+          </div>
     </div>
-</div>   
-
-
-
-
-
+    <div class="youtube-embed">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/7OZ6txCv3Us?si=CncsSg0DGE6NJImr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+    </div> 
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode'); 
+        }
+    </script>
 </body>
 </html>
