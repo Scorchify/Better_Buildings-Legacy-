@@ -6,7 +6,7 @@
     <title>MCPS Website</title>
     <link rel="stylesheet" href="stylehomepage.css">
     <style>
-        :root {
+        :root { /*defined variables */ 
             --background-light: #e7e6ef;
             --background-dark: #111019;
             --text-light: #111014;
@@ -21,9 +21,9 @@
             --bottom-panel-dark: #3b2e7a;
         }
 
-        body {
-            background-color: var(--background-light);
-            color: var(--text-light);
+        body { 
+            background-color: var(--background-dark);
+            color: var(--text-dark);
             margin: 0;
             padding: 0;
             font-family: 'Times New Roman', Times, serif;
@@ -46,8 +46,8 @@
         }
 
         .styled-button {
-            background-color: var(--button-background-light);
-            color: var(--button-text-light);
+            background-color: var(--button-background-dark);
+            color: var(--button-text-dark);
             border-radius: 4px;
             height: 30px;
             width: 100px;
@@ -81,7 +81,7 @@
         .colored-box {
             width: 100%;
             height: 175px;
-            background-color: var(--bottom-panel-light);
+            background-color: var(--bottom-panel-dark);
             position: fixed;
             bottom: 0;
             left: 0;
@@ -90,7 +90,7 @@
         .bug-reporting p,
         .dev-logs p,
         .about-us p {
-            color: var(--text-light);
+            color: var(--text-dark);
             font-family: Ubuntu;
             font-size: 20px;
             text-align: center;
@@ -99,34 +99,34 @@
         .bug-reporting a,
         .dev-logs a,
         .about-us a {
-            color: var(--link-light);
+            color: var(--link-dark);
             text-decoration: none;
         }
 
-        .dark-mode .styled-button {
-            background-color: var(--button-background-dark);
-            color: var(--button-text-dark);
+        .light-mode .styled-button {
+            background-color: var(--button-background-light);
+            color: var(--button-text-light);
         }
 
-        .dark-mode .colored-box {
-            background-color: var(--bottom-panel-dark);
+        .light-mode .colored-box {
+            background-color: var(--bottom-panel-light);
         }
 
-        .dark-mode {
-            background-color: var(--background-dark);
-            color: var(--text-dark);
+        .light-mode {
+            background-color: var(--background-light);
+            color: var(--text-light);
         }
 
-        .dark-mode .bug-reporting p,
-        .dark-mode .dev-logs p,
-        .dark-mode .about-us p {
-            color: var(--text-dark);
+        .light-mode .bug-reporting p,
+        .light-mode .dev-logs p,
+        .light-mode .about-us p {
+            color: var(--text-light);
         }
 
-        .dark-mode .bug-reporting a,
-        .dark-mode .dev-logs a,
-        .dark-mode .about-us a {
-            color: var(--link-dark);
+        .light-mode .bug-reporting a,
+        .light-mode .dev-logs a,
+        .light-mode .about-us a {
+            color: var(--link-light);
         }
 
         /* Media queries for responsive design */
@@ -175,7 +175,7 @@
         <a style="text-decoration:none" href="signIn.html">
             <button class="styled-button">Sign Up</button>
         </a>
-        <button class="styled-button" onclick="toggleDarkMode()">Toggle Mode</button>
+        <button class="styled-button" onclick="toggleDarkMode()">Theme Toggle</button>
     </div>
     <a href="https://www2.montgomeryschoolsmd.org" target="blank">
         <img src="https://i.postimg.cc/52HSXdns/MCPS.png" alt="MCPS" width="100px" height="100" class="top-right-image"> 
@@ -203,7 +203,7 @@
     </div> 
     <script>
         function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode'); 
+            document.body.classList.toggle('light-mode'); 
         }
     </script>
 </body>
