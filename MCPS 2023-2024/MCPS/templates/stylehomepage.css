@@ -1,6 +1,16 @@
-body {
-    margin: 0;
-    padding: 0;
+:root {
+    --background-light: #e7e6ef;
+    --background-dark: #111019;
+    --text-light: #111014;
+    --text-dark: #ECEBEF;
+    --link-light: #111014;
+    --link-dark: #ECEBEF;
+    --button-background-light: #4a32b3;
+    --button-background-dark: #644ccd;
+    --button-text-light: #111014;
+    --button-text-dark: #ecebef;
+    --bottom-panel-light: #9285d1;
+    --bottom-panel-dark: #3b2e7a;
 }
 
 @font-face {
@@ -8,8 +18,29 @@ body {
     src: url(Ubuntu-Regular.ttf);
 }
 
-.light-mode {
-    background-image: none;
+@font-face {
+    font-family: Cera;
+    src: url(CeraPro-Regular.otf) format("opentype");
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 90px;
+    text-align: center;
+    font-family: Ubuntu;
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
 }
 
 .buttons-container {
@@ -19,46 +50,18 @@ body {
     flex-wrap: wrap;
 }
 
-.youtube-embed {
-    position: absolute;
-    top: 30px;
-    right: 500px
-
-
-}
-
 .styled-button {
-    background-color: black;
-    color: white;
+    background-color: var(--button-background-dark);
+    color: var(--button-text-dark);
     border-radius: 4px;
     height: 30px;
     width: 100px;
     font-size: 14px;
-    font-family: Ubuntu;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border: none;
     cursor: pointer;
     flex: 1;
     max-width: 100px;
-}
-
-.colored-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-    width: 90%;
-    margin: 0 auto;
-}
-
-.colored-box2 {
-    text-align: center;
-    font-family: Ubuntu;
-}
-
-.top-right-image {
-    position: absolute;
-    top: 10px;
-    right: 10px;
 }
 
 .colored-box {
@@ -70,13 +73,52 @@ body {
     left: 0;
 }
 
+.top-right-image {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
 .bug-reporting p,
 .dev-logs p,
 .about-us p {
-    color: white;
+    color: var(--text-dark);
     font-family: Ubuntu;
     font-size: 20px;
     text-align: center;
+}
+
+.bug-reporting a,
+.dev-logs a,
+.about-us a {
+    color: var(--link-dark);
+    text-decoration: none;
+}
+
+.light-mode .styled-button {
+    background-color: var(--button-background-light);
+    color: var(--button-text-light);
+}
+
+.light-mode .colored-box {
+    background-color: var(--bottom-panel-light);
+}
+
+.light-mode {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+.light-mode .bug-reporting p,
+.light-mode .dev-logs p,
+.light-mode .about-us p {
+    color: var(--text-light);
+}
+
+.light-mode .bug-reporting a,
+.light-mode .dev-logs a,
+.light-mode .about-us a {
+    color: var(--link-light);
 }
 
 /* Media queries for responsive design */
@@ -84,10 +126,6 @@ body {
     .styled-button {
         width: auto;
         flex: 1 1 auto;
-    }
-
-    .colored-container {
-        width: 100%;
     }
 
     .colored-box {
@@ -98,6 +136,10 @@ body {
     .dev-logs p,
     .about-us p {
         font-size: 18px;
+    }
+
+    h1 {
+        font-size: 60px;
     }
 }
 
@@ -111,4 +153,25 @@ body {
     .about-us p {
         font-size: 16px;
     }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .youtube-embed iframe {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.text-container {
+    height: 50vh;
+    width: 90%;
+    margin: 0 auto;
+    font-family: Ubuntu;
+}
+
+.youtube-embed {
+    text-align: center;
+    margin: 20px 0;
 }
