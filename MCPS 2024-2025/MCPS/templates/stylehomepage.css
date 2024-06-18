@@ -35,13 +35,13 @@ body {
 
 h1 {
     font-weight: bold;
-    font-size: 5vw; /* Adjusted for fluid scaling */
+    font-size: 5vw; 
     text-align: center;
     font-family: Ubuntu;
 }
 
 p {
-    font-size: 2vw; /* Adjusted for fluid scaling */
+    font-size: 2vw; 
     text-align: center;
 }
 
@@ -57,10 +57,10 @@ p {
     background-color: var(--button-background-dark);
     color: var(--button-text-dark);
     border-radius: 4px;
-    height: 5vh; /* Adjusted for fluid scaling */
-    width: 15vw; /* Adjusted for fluid scaling */
-    max-width: 150px; /* Ensuring maximum width */
-    font-size: 1.2vw; /* Adjusted for fluid scaling */
+    height: 5vh; 
+    width: 15vw; 
+    max-width: 150px; 
+    font-size: 1.2vw; 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border: none;
     cursor: pointer;
@@ -91,7 +91,7 @@ p {
 .dev-logs p {
     color: var(--text-dark);
     font-family: Ubuntu;
-    font-size: 1.2vw; /* Adjusted for smaller text size */
+    font-size: 1.2vw; 
     text-align: center;
 }
 
@@ -138,27 +138,27 @@ p {
 
     .bug-reporting p,
     .dev-logs p {
-        font-size: 4vw; /* Adjusted for smaller screens */
+        font-size: 4vw; 
     }
 
     h1 {
-        font-size: 8vw; /* Adjusted for smaller screens */
+        font-size: 8vw; 
     }
 }
 
 @media (max-width: 480px) {
     .styled-button {
-        font-size: 4vw; /* Adjusted for smaller screens */
-        height: 7vh; /* Adjusted for smaller screens */
+        font-size: 4vw; 
+        height: 7vh; 
     }
 
     .bug-reporting p,
     .dev-logs p {
-        font-size: 5vw; /* Adjusted for smaller screens */
+        font-size: 5vw; 
     }
 
     h1 {
-        font-size: 10vw; /* Adjusted for smaller screens */
+        font-size: 10vw; 
     }
 
     .youtube-embed iframe {
@@ -189,9 +189,9 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80vw; /* Adjusted for fluid scaling */
-    max-width: 800px; /* Ensuring maximum width */
-    height: 45vw; /* Adjusted for fluid scaling */
-    max-height: 450px; /* Ensuring maximum height */
+    width: 80vw; 
+    max-width: 800px; 
+    height: 45vw; 
+    max-height: 450px; 
 }
 
