@@ -1,17 +1,17 @@
 :root {
     /*change themes here */ 
-    --background-light: #e7e6ef;
-    --background-dark: #111019;
-    --text-light: #111014;
-    --text-dark: #ECEBEF;
-    --link-light: #111014;
-    --link-dark: #ECEBEF;
-    --button-background-light: #4a32b3;
-    --button-background-dark: #644ccd;
-    --button-text-light: #111014;
-    --button-text-dark: #ecebef;
-    --bottom-panel-light: #9285d1;
-    --bottom-panel-dark: #3b2e7a;
+    --background-light: #f0f1f5;
+    --background-dark: #0a0b0f;
+    --text-light: #17181c;
+    --text-dark: #e3e4e8;
+    --link-light: #17181c;
+    --link-dark: #e3e4e8;
+    --button-background-light: #323d62;
+    --button-background-dark: #3558cb;
+    --button-text-light: #0a0b0f;
+    --button-text-dark: #101314;
+    --bottom-panel-light: #3457cb;
+    --bottom-panel-dark: #304382;
 }
 
 /*font imports*/ 
