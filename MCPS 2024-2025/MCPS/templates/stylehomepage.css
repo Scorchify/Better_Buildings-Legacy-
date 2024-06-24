@@ -91,29 +91,20 @@ p {
     text-align: center;
 }
 
-.top-right-image {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.bug-reporting p,
-.dev-logs p {
+.footer p{
     color: var(--text-dark);
     font-family: Ubuntu;
-    font-size: 1.2vw; 
-    text-align: center;
+    font-size: 1vw; 
+    top: 10px;
     transition: box-shadow 0.3s ease;
 }
 
-.bug-reporting a,
-.dev-logs a {
+.footer a {
     color: var(--link-dark);
     text-decoration: none;
 }
 
-.bug-reporting p:hover,
-.dev-logs p:hover {
+.footer p:hover{
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -131,13 +122,11 @@ p {
     color: var(--text-light);
 }
 
-.light-mode .bug-reporting p,
-.light-mode .dev-logs p {
+.light-mode .footer p{
     color: var(--text-light);
 }
 
-.light-mode .bug-reporting a,
-.light-mode .dev-logs a {
+.light-mode .footer a{
     color: var(--link-light);
 }
 
@@ -152,8 +141,7 @@ p {
         height: 100px;
     }
 
-    .bug-reporting p,
-    .dev-logs p {
+    .footer p{
         font-size: 4vw; 
     }
 
@@ -168,8 +156,7 @@ p {
         height: 7vh; 
     }
 
-    .bug-reporting p,
-    .dev-logs p {
+    .footer p{
         font-size: 5vw; 
     }
 
@@ -213,9 +200,9 @@ p {
 
 /* Dropdown menu styles */
 .dropdown-container {
-    position: relative;
-    display: inline-block;
-    margin: 10px;
+    position: absolute; /* Changed from relative */
+    top: 10px; /* Align to top */
+    right: 10px; /* Align to right */
 }
 
 .dropdown-button {
@@ -237,6 +224,7 @@ p {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     font-family: Ubuntu;
+    right: 0; /* Align to the right of the button */
 }
 
 .dropdown-content a {
@@ -256,5 +244,22 @@ p {
 }
 
 .dropdown-container:hover .dropdown-button {
-    background-color: var(--button-backgrond-light);
-}u
+    background-color: var(--button-background-light);
+}
+
+.social-icons {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    color: var(--link-dark);
+    font-size: 1.5vw; 
+}
+
+.social-icons a:hover {
+    color: var(--link-light);
+}
