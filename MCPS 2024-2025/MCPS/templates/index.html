@@ -8,12 +8,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
-    <div class="dropdown-container">
-        <button class="dropdown-button">Menu</button>
-        <div class="dropdown-content">
-            <a href="reporting.html">Report Here</a>
-            <a href="signIn.html">Sign Up</a>
-            <a href="https://www2.montgomeryschoolsmd.org" target="_blank">MCPS</a>
+    <div class="menu-container">
+        <div class="dropdown-container">
+            <button class="dropdown-button" id="bars-icon"><i class="fa-solid fa-bars"></i></button>
+            <div class="dropdown-content">
+                <a href="reporting.html">Report Here</a>
+                <a href="signIn.html">Sign Up</a>
+                <a href="https://www2.montgomeryschoolsmd.org" target="_blank">MCPS</a>
+            </div>
+        </div>
+        <div class="icon-container" id="theme-icon">
+            <i class="fa-solid fa-moon"></i>
+            <div id="theme-dropdown" class="theme-content">
+                <a href="#" onclick="setTheme('dark')">Dark Mode</a>
+                <a href="#" onclick="setTheme('light')">Light Mode</a>
+            </div>
         </div>
     </div>
     <div class="buttons-container">
@@ -27,13 +36,9 @@
     </div>
     <div class="text-container">
         <div class="header-text">
-            <h1>Better Buildings</h1>
-            <p>How to use the Better Building Website:</p>
+            <h1>Better Buildings</h1>      
         </div>
     </div>
-    <div class="youtube-embed">
-        <iframe src="https://www.youtube.com/embed/7OZ6txCv3Us?si=CncsSg0DGE6NJImr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div> 
     <div class="colored-box">
         <div class="footer">
             <p>Better Buildings by Ayden Yeung and Julian Givens</p>
@@ -46,8 +51,34 @@
         </div>
     </div>
     <script>
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                toggleDarkMode();
+            } else if (theme === 'light') {
+                toggleLightMode();
+            }
+        }
+
         function toggleLightMode() {
-            document.body.classList.toggle('light-mode'); 
+            document.body.classList.add('light-mode');
+            document.body.classList.remove('dark-mode');
+            document.querySelector('#bars-icon i').classList.add('fa-bars-black');
+            document.querySelector('#bars-icon i').classList.remove('fa-bars-white');
+            document.querySelector('#theme-icon i').classList.add('fa-sun');
+            document.querySelector('#theme-icon i').classList.remove('fa-moon');
+            document.querySelector('#theme-icon').style.backgroundColor = "black";
+            document.querySelector('#bars-icon').style.backgroundColor = "black";
+        }
+
+        function toggleDarkMode(){
+            document.body.classList.add('dark-mode');
+            document.body.classList.remove('light-mode');
+            document.querySelector('#bars-icon i').classList.add('fa-bars-white');
+            document.querySelector('#bars-icon i').classList.remove('fa-bars-black');
+            document.querySelector('#theme-icon i').classList.add('fa-moon');
+            document.querySelector('#theme-icon i').classList.remove('fa-sun');
+            document.querySelector('#theme-icon').style.backgroundColor = "transparent";
+            document.querySelector('#bars-icon').style.backgroundColor = "transparent";
         }
     </script>
 </body>

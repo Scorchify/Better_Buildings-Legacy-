@@ -1,5 +1,4 @@
 :root {
-    /* Change themes here */ 
     --background-light: #f0f1f5;
     --background-dark: #0a0b0f;
     --text-light: #17181c;
@@ -13,48 +12,48 @@
     --bottom-panel-light: #3457cb;
     --bottom-panel-dark: #304382;
     --dropdown-background: #070b21;
-}
-
-/* Font imports */ 
-@font-face {
+    --sun-outline-color: #101314; /* Adjust the color for sun outline */
+  }
+  
+  @font-face {
     font-family: Ubuntu;
     src: url(Ubuntu-Regular.ttf);
-}
-
-@font-face {
+  }
+  
+  @font-face {
     font-family: Cera;
     src: url(CeraPro-Regular.otf) format("opentype");
-}
-
-body {
+  }
+  
+  body {
     background-color: var(--background-dark);
     color: var(--text-dark);
     margin: 0;
     padding: 0;
     font-family: 'Times New Roman', Times, serif;
-}
-
-h1 {
+  }
+  
+  h1 {
     font-weight: bold;
     font-size: 5vw; 
     text-align: center;
     font-family: Ubuntu;
-}
-
-p {
+  }
+  
+  p {
     font-size: 2vw; 
     text-align: center;
-}
-
-.buttons-container {
+  }
+  
+  .buttons-container {
     display: flex;
     gap: 10px;
     margin: 10px;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.styled-button {
+  }
+  
+  .styled-button {
     background-color: var(--button-background-dark);
     color: var(--button-text-dark);
     border-radius: 8px;
@@ -68,17 +67,17 @@ p {
     flex: 1;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    white-space: nowrap; /* Prevent text wrapping */
-    padding: 0 10px; /* Add padding for better spacing */
-}
-
-.styled-button:hover {
+    white-space: nowrap; 
+    padding: 0 10px; 
+  }
+  
+  .styled-button:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
-}
-
-.colored-box {
-    width: 100%;
+  }
+  
+  .colored-box {
+    width: 100vw;
     height: 10%;
     background-color: var(--bottom-panel-dark);
     position: fixed;
@@ -89,134 +88,212 @@ p {
     align-items: center;
     flex-direction: column;
     text-align: center;
-}
-
-.footer p{
+    z-index: 1000; /* Ensure this is above other content */
+    overflow-x: hidden;
+  }
+  
+  
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--bottom-panel-dark);
     color: var(--text-dark);
+    text-align: center;
     font-family: Ubuntu;
-    font-size: 1vw; 
+    overflow-x: hidden;
+  }
+  
+  .footer p {
+    font-size: 1vw;
     top: 10px;
     transition: box-shadow 0.3s ease;
-}
-
-.footer a {
+  }
+  
+  .footer a {
     color: var(--link-dark);
     text-decoration: none;
-}
-
-.footer p:hover{
+  }
+  
+  .footer p:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.light-mode .styled-button {
+  }
+  
+  .light-mode .styled-button {
     background-color: var(--button-background-light);
     color: var(--button-text-light);
-}
-
-.light-mode .colored-box {
+  }
+  
+  .light-mode .colored-box {
     background-color: var(--bottom-panel-light);
-}
-
-.light-mode {
+  }
+  
+  .light-mode {
     background-color: var(--background-light);
     color: var(--text-light);
-}
-
-.light-mode .footer p{
+  }
+  
+  .light-mode .footer p {
     color: var(--text-light);
-}
-
-.light-mode .footer a{
+  }
+  
+  .light-mode .footer a {
     color: var(--link-light);
-}
-
-/* Media queries for responsive design */
-@media (max-width: 768px) {
+  }
+  
+  .light-mode .dropdown-button {
+    color: var(--text-light);
+  }
+  
+  @media (max-width: 768px) {
     .styled-button {
         width: auto;
         flex: 1 1 auto;
     }
-
+  
     .colored-box {
         height: 100px;
     }
-
-    .footer p{
+  
+    .footer p {
         font-size: 4vw; 
     }
-
+  
     h1 {
         font-size: 8vw; 
     }
-}
-
-@media (max-width: 480px) {
+  }
+  
+  @media (max-width: 480px) {
     .styled-button {
         font-size: 4vw; 
         height: 7vh; 
     }
-
-    .footer p{
+  
+    .footer p {
         font-size: 5vw; 
     }
-
+  
     h1 {
         font-size: 10vw; 
     }
-
-    .youtube-embed iframe {
-        width: 100%;
-        height: auto;
-        margin-left: auto;
-        margin-right: auto;
+  }
+  
+  @media (min-width: 769px) {
+    .footer p {
+        font-size: 1vw; 
     }
-}
-
-.text-container {
-    height: 50vh;
-    width: 90%;
+  
+    h1 {
+        font-size: 5vw; 
+    }
+  }
+  
+  .header-text {
     margin: 0 auto;
+    width: 100%; 
+  }
+  
+  .social-icons {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .social-icons a {
+    color: var(--link-dark);
+    font-size: 1.5vw; 
+  }
+  
+  .social-icons a:hover {
+    color: var(--link-light);
+  }
+  
+  .menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .dropdown-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; 
+    right: 0px;
+    height: 40px; 
+    border: 1px solid white; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease;
+  }
+  .icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; 
+    right: 20px;
+    height: 40px; 
+    border: 1px solid white; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease;
+  }
+  
+  .icon-container i, .dropdown-container i {
+    font-size: 1.5em; 
+  }
+  
+  .icon-container:hover .theme-content, .dropdown-container:hover .dropdown-content {
+    display: block;
+    transition: display 0.3s ease-in-out;
+  }
+  
+  .theme-dropdown {
+    position: relative;
+  }
+  
+  .theme-content {
+    display: none;
+    position: absolute;
+    background-color: var(--dropdown-background); 
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    z-index: 1;
     font-family: Ubuntu;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-}
-
-.youtube-embed {
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: -20vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80vw; 
-    max-width: 800px; 
-    height: 45vw; 
-    max-height: 450px; 
-}
-
-/* Dropdown menu styles */
-.dropdown-container {
-    position: absolute; /* Changed from relative */
-    top: 10px; /* Align to top */
-    right: 10px; /* Align to right */
-}
-
-.dropdown-button {
-    background-color: var(--button-background-dark);
+    right: 0; 
+    top: calc(100%);
+  }
+  
+  .theme-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: Ubuntu;
+  }
+  
+  .theme-content a:hover {
+    background-color: var(--button-background-light);
+  }
+  
+  .dropdown-button {
+    background-color: transparent; 
     color: var(--button-text-dark);
     border: none;
     padding: 10px;
+    left: 20px;
     font-family: Ubuntu;
-    font-size: 1vw;
-    border-radius: 8px;
+    font-size: 1.5em;
     cursor: pointer;
-}
-
-.dropdown-content {
+    transition: color 0.3s ease; 
+  }
+  
+  .dropdown-content {
     display: none;
     position: absolute;
     background-color: var(--dropdown-background);
@@ -224,42 +301,36 @@ p {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     font-family: Ubuntu;
-    right: 0; /* Align to the right of the button */
-}
-
-.dropdown-content a {
+    left: 0px; 
+    top: calc(100%);
+    transition: display 0.3s ease-in-out;
+  }
+  
+  .dropdown-content a {
     color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     font-family: Ubuntu;
-}
-
-.dropdown-content a:hover {
+  }
+  
+  .dropdown-content a:hover {
     background-color: var(--button-background-light);
-}
-
-.dropdown-container:hover .dropdown-content {
+  }
+  
+  .icon-container:hover .theme-content, .dropdown-container:hover .dropdown-content {
     display: block;
-}
-
-.dropdown-container:hover .dropdown-button {
-    background-color: var(--button-background-light);
-}
-
-.social-icons {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    display: flex;
-    gap: 10px;
-}
-
-.social-icons a {
-    color: var(--link-dark);
-    font-size: 1.5vw; 
-}
-
-.social-icons a:hover {
-    color: var(--link-light);
-}
+  }
+  
+  .fa-bars-black {
+    color: black !important;
+  }
+  
+  .fa-bars-white {
+    color: white !important;
+  }
+  
+  .fa-sun {
+    color: var(--sun-outline-color); /* Ensure only the outline of the sun is black */
+  }
+  
