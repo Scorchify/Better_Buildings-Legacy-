@@ -52,7 +52,7 @@ p {
     margin: 10px;
     flex-wrap: wrap;
     justify-content: center;
-    overflow-x: hidden;
+    
 }
 
 .styled-button {
@@ -71,7 +71,7 @@ p {
     transition: all 0.3s ease;
     white-space: nowrap; 
     padding: 0 10px; 
-    overflow-x: hidden;
+    
 }
 
 .styled-button:hover {
@@ -92,31 +92,31 @@ p {
     flex-direction: column;
     text-align: center;
     z-index: 1000;
-    overflow-x: hidden; /* Ensure no horizontal overflow */
+    
 }
 
 .footer {
     position: absolute;
-    bottom: 0;
+    bottom: 1vh;
     width: 100vw; 
     background-color: var(--bottom-panel-dark);
     color: var(--text-dark);
     text-align: center;
     font-family: Ubuntu;
-    overflow-x: hidden; /* Ensure no horizontal overflow */
+    
 }
 
 .footer p {
     font-size: 1vw;
     top: 10px;
     transition: box-shadow 0.3s ease;
-    overflow-x: hidden;
+    
 }
 
 .footer a {
     color: var(--link-dark);
     text-decoration: none;
-    overflow-x: hidden;
+    
 }
 
 .footer p:hover {
@@ -130,6 +130,9 @@ p {
 
 .light-mode .colored-box {
     background-color: var(--bottom-panel-light);
+}
+.light-mode .footer {
+    background-color: var(--bottom-panel-light); /* Ensure this matches the colored-box */
 }
 
 .light-mode {
@@ -204,7 +207,7 @@ p {
     right: 10px;
     display: flex;
     gap: 10px;
-    overflow-x: hidden;
+    
 }
 
 .social-icons a {
