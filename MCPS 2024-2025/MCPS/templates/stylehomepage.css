@@ -13,47 +13,49 @@
     --bottom-panel-dark: #304382;
     --dropdown-background: #070b21;
     --sun-outline-color: #101314; /* Adjust the color for sun outline */
-  }
-  
-  @font-face {
+}
+
+@font-face {
     font-family: Ubuntu;
     src: url(Ubuntu-Regular.ttf);
-  }
-  
-  @font-face {
+}
+
+@font-face {
     font-family: Cera;
     src: url(CeraPro-Regular.otf) format("opentype");
-  }
-  
-  body {
+}
+
+body {
     background-color: var(--background-dark);
     color: var(--text-dark);
     margin: 0;
     padding: 0;
     font-family: 'Times New Roman', Times, serif;
-  }
-  
-  h1 {
+    overflow-x: hidden;
+}
+
+h1 {
     font-weight: bold;
     font-size: 5vw; 
     text-align: center;
     font-family: Ubuntu;
-  }
-  
-  p {
+}
+
+p {
     font-size: 2vw; 
     text-align: center;
-  }
-  
-  .buttons-container {
+}
+
+.buttons-container {
     display: flex;
     gap: 10px;
     margin: 10px;
     flex-wrap: wrap;
     justify-content: center;
-  }
-  
-  .styled-button {
+    overflow-x: hidden;
+}
+
+.styled-button {
     background-color: var(--button-background-dark);
     color: var(--button-text-dark);
     border-radius: 8px;
@@ -69,15 +71,16 @@
     transition: all 0.3s ease;
     white-space: nowrap; 
     padding: 0 10px; 
-  }
-  
-  .styled-button:hover {
+    overflow-x: hidden;
+}
+
+.styled-button:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
-  }
-  
-  .colored-box {
-    width: 100vw;
+}
+
+.colored-box {
+    width: 100%;
     height: 10%;
     background-color: var(--bottom-panel-dark);
     position: fixed;
@@ -88,138 +91,142 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-    z-index: 1000; /* Ensure this is above other content */
-    overflow-x: hidden;
-  }
-  
-  
-  .footer {
+    z-index: 1000;
+    overflow-x: hidden; /* Ensure no horizontal overflow */
+}
+
+.footer {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 100vw; 
     background-color: var(--bottom-panel-dark);
     color: var(--text-dark);
     text-align: center;
     font-family: Ubuntu;
-    overflow-x: hidden;
-  }
-  
-  .footer p {
+    overflow-x: hidden; /* Ensure no horizontal overflow */
+}
+
+.footer p {
     font-size: 1vw;
     top: 10px;
     transition: box-shadow 0.3s ease;
-  }
-  
-  .footer a {
+    overflow-x: hidden;
+}
+
+.footer a {
     color: var(--link-dark);
     text-decoration: none;
-  }
-  
-  .footer p:hover {
+    overflow-x: hidden;
+}
+
+.footer p:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .light-mode .styled-button {
+}
+
+.light-mode .styled-button {
     background-color: var(--button-background-light);
     color: var(--button-text-light);
-  }
-  
-  .light-mode .colored-box {
+}
+
+.light-mode .colored-box {
     background-color: var(--bottom-panel-light);
-  }
-  
-  .light-mode {
+}
+
+.light-mode {
     background-color: var(--background-light);
     color: var(--text-light);
-  }
-  
-  .light-mode .footer p {
+}
+
+.light-mode .footer p {
     color: var(--text-light);
-  }
-  
-  .light-mode .footer a {
+}
+
+.light-mode .footer a {
     color: var(--link-light);
-  }
-  
-  .light-mode .dropdown-button {
+}
+
+.light-mode .dropdown-button {
     color: var(--text-light);
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .styled-button {
         width: auto;
         flex: 1 1 auto;
     }
-  
+
     .colored-box {
         height: 100px;
     }
-  
+
     .footer p {
         font-size: 4vw; 
     }
-  
+
     h1 {
         font-size: 8vw; 
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     .styled-button {
         font-size: 4vw; 
         height: 7vh; 
     }
-  
+
     .footer p {
         font-size: 5vw; 
     }
-  
+
     h1 {
         font-size: 10vw; 
     }
-  }
-  
-  @media (min-width: 769px) {
+}
+
+@media (min-width: 769px) {
     .footer p {
         font-size: 1vw; 
     }
-  
+
     h1 {
         font-size: 5vw; 
     }
-  }
-  
-  .header-text {
+}
+
+.header-text {
     margin: 0 auto;
     width: 100%; 
-  }
-  
-  .social-icons {
+}
+
+.social-icons {
     position: absolute;
     bottom: 10px;
     right: 10px;
     display: flex;
     gap: 10px;
-  }
-  
-  .social-icons a {
+    overflow-x: hidden;
+}
+
+.social-icons a {
     color: var(--link-dark);
     font-size: 1.5vw; 
-  }
-  
-  .social-icons a:hover {
+}
+
+.social-icons a:hover {
     color: var(--link-light);
-  }
-  
-  .menu-container {
+    overflow-x: hidden;
+}
+
+.menu-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 10px;
-  }
-  
-  .dropdown-container {
+    
+}
+
+.dropdown-container {
     position: relative;
     display: flex;
     align-items: center;
@@ -230,8 +237,10 @@
     border: 1px solid white; 
     border-radius: 5px; 
     transition: background-color 0.3s ease;
-  }
-  .icon-container {
+    
+}
+
+.icon-container {
     position: relative;
     display: flex;
     align-items: center;
@@ -242,22 +251,26 @@
     border: 1px solid white; 
     border-radius: 5px; 
     transition: background-color 0.3s ease;
-  }
-  
-  .icon-container i, .dropdown-container i {
+    
+}
+
+.icon-container i, .dropdown-container i {
     font-size: 1.5em; 
-  }
-  
-  .icon-container:hover .theme-content, .dropdown-container:hover .dropdown-content {
+    
+}
+
+.icon-container:hover .theme-content, .dropdown-container:hover .dropdown-content {
     display: block;
     transition: display 0.3s ease-in-out;
-  }
-  
-  .theme-dropdown {
+    
+}
+
+.theme-dropdown {
     position: relative;
-  }
-  
-  .theme-content {
+    
+}
+
+.theme-content {
     display: none;
     position: absolute;
     background-color: var(--dropdown-background); 
@@ -267,21 +280,24 @@
     font-family: Ubuntu;
     right: 0; 
     top: calc(100%);
-  }
-  
-  .theme-content a {
+    
+}
+
+.theme-content a {
     color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     font-family: Ubuntu;
-  }
-  
-  .theme-content a:hover {
+    
+}
+
+.theme-content a:hover {
     background-color: var(--button-background-light);
-  }
-  
-  .dropdown-button {
+    
+}
+
+.dropdown-button {
     background-color: transparent; 
     color: var(--button-text-dark);
     border: none;
@@ -291,9 +307,10 @@
     font-size: 1.5em;
     cursor: pointer;
     transition: color 0.3s ease; 
-  }
-  
-  .dropdown-content {
+    
+}
+
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: var(--dropdown-background);
@@ -304,33 +321,19 @@
     left: 0px; 
     top: calc(100%);
     transition: display 0.3s ease-in-out;
-  }
-  
-  .dropdown-content a {
+    
+}
+
+.dropdown-content a {
     color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     font-family: Ubuntu;
-  }
-  
-  .dropdown-content a:hover {
+    
+}
+
+.dropdown-content a:hover {
     background-color: var(--button-background-light);
-  }
-  
-  .icon-container:hover .theme-content, .dropdown-container:hover .dropdown-content {
-    display: block;
-  }
-  
-  .fa-bars-black {
-    color: black !important;
-  }
-  
-  .fa-bars-white {
-    color: white !important;
-  }
-  
-  .fa-sun {
-    color: var(--sun-outline-color); /* Ensure only the outline of the sun is black */
-  }
-  
+    
+}
