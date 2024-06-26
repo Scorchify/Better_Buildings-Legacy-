@@ -9,10 +9,9 @@
     --button-background-dark: #3558cb;
     --button-text-light: #0a0b0f;
     --button-text-dark: #101314;
-    --bottom-panel-light: #3457cb;
-    --bottom-panel-dark: #304382;
+    --bottom-panel-color: #3457cb;
     --dropdown-background: #070b21;
-    --sun-outline-color: #101314; /* Adjust the color for sun outline */
+    --sun-outline-color: #101314;
 }
 
 @font-face {
@@ -36,53 +35,20 @@ body {
 
 h1 {
     font-weight: bold;
-    font-size: 5vw; 
+    font-size: 5vw;
     text-align: center;
     font-family: Ubuntu;
 }
 
 p {
-    font-size: 2vw; 
+    font-size: 2vw;
     text-align: center;
-}
-
-.buttons-container {
-    display: flex;
-    gap: 10px;
-    margin: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-}
-
-.styled-button {
-    background-color: var(--button-background-dark);
-    color: var(--button-text-dark);
-    border-radius: 8px;
-    height: 5vh; 
-    width: 15vw; 
-    max-width: 150px; 
-    font-size: 0.8vw; 
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    border: none;
-    cursor: pointer;
-    flex: 1;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    white-space: nowrap; 
-    padding: 0 10px; 
-    
-}
-
-.styled-button:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
 }
 
 .colored-box {
     width: 100%;
     height: 10%;
-    background-color: var(--bottom-panel-dark);
+    background-color: var(--bottom-panel-color);
     position: fixed;
     bottom: 0;
     left: 0;
@@ -92,47 +58,40 @@ p {
     flex-direction: column;
     text-align: center;
     z-index: 1000;
-    
+    overflow-x: hidden;
 }
 
 .footer {
     position: absolute;
-    bottom: 1vh;
-    width: 100vw; 
-    background-color: var(--bottom-panel-dark);
+    bottom: 0;
+    width: 100vw;
+    background-color: var(--bottom-panel-color);
     color: var(--text-dark);
     text-align: center;
     font-family: Ubuntu;
-    
+    overflow-x: hidden;
 }
 
 .footer p {
     font-size: 1vw;
     top: 10px;
     transition: box-shadow 0.3s ease;
-    
+    overflow-x: hidden;
 }
 
 .footer a {
     color: var(--link-dark);
     text-decoration: none;
-    
+    overflow-x: hidden;
 }
 
 .footer p:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.light-mode .styled-button {
-    background-color: var(--button-background-light);
-    color: var(--button-text-light);
-}
-
-.light-mode .colored-box {
-    background-color: var(--bottom-panel-light);
-}
+.light-mode .colored-box,
 .light-mode .footer {
-    background-color: var(--bottom-panel-light); /* Ensure this matches the colored-box */
+    background-color: var(--bottom-panel-color);
 }
 
 .light-mode {
@@ -153,52 +112,42 @@ p {
 }
 
 @media (max-width: 768px) {
-    .styled-button {
-        width: auto;
-        flex: 1 1 auto;
-    }
-
     .colored-box {
         height: 100px;
     }
 
     .footer p {
-        font-size: 4vw; 
+        font-size: 4vw;
     }
 
     h1 {
-        font-size: 8vw; 
+        font-size: 8vw;
     }
 }
 
 @media (max-width: 480px) {
-    .styled-button {
-        font-size: 4vw; 
-        height: 7vh; 
-    }
-
     .footer p {
-        font-size: 5vw; 
+        font-size: 5vw;
     }
 
     h1 {
-        font-size: 10vw; 
+        font-size: 10vw;
     }
 }
 
 @media (min-width: 769px) {
     .footer p {
-        font-size: 1vw; 
+        font-size: 1vw;
     }
 
     h1 {
-        font-size: 5vw; 
+        font-size: 5vw;
     }
 }
 
 .header-text {
     margin: 0 auto;
-    width: 100%; 
+    width: 100%;
 }
 
 .social-icons {
@@ -207,12 +156,12 @@ p {
     right: 10px;
     display: flex;
     gap: 10px;
-    
+    overflow-x: hidden;
 }
 
 .social-icons a {
     color: var(--link-dark);
-    font-size: 1.5vw; 
+    font-size: 1.5vw;
 }
 
 .social-icons a:hover {
@@ -226,7 +175,6 @@ p {
     align-items: center;
     width: 100%;
     padding: 10px;
-    
 }
 
 .dropdown-container {
@@ -234,13 +182,11 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px; 
-    right: 0px;
-    height: 40px; 
-    border: 1px solid white; 
-    border-radius: 5px; 
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
-    
 }
 
 .icon-container {
@@ -248,42 +194,37 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px; 
-    right: 20px;
-    height: 40px; 
-    border: 1px solid white; 
-    border-radius: 5px; 
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
-    
+    margin-right: 20px;
 }
 
 .icon-container i, .dropdown-container i {
-    font-size: 1.5em; 
-    
+    font-size: 1.5em;
 }
 
 .icon-container:hover .theme-content, .dropdown-container:hover .dropdown-content {
     display: block;
     transition: display 0.3s ease-in-out;
-    
 }
 
 .theme-dropdown {
     position: relative;
-    
 }
 
 .theme-content {
     display: none;
     position: absolute;
-    background-color: var(--dropdown-background); 
+    background-color: var(--dropdown-background);
     min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     font-family: Ubuntu;
-    right: 0; 
+    right: 0;
     top: calc(100%);
-    
 }
 
 .theme-content a {
@@ -292,25 +233,21 @@ p {
     text-decoration: none;
     display: block;
     font-family: Ubuntu;
-    
 }
 
 .theme-content a:hover {
     background-color: var(--button-background-light);
-    
 }
 
 .dropdown-button {
-    background-color: transparent; 
+    background-color: transparent;
     color: var(--button-text-dark);
     border: none;
     padding: 10px;
-    left: 20px;
     font-family: Ubuntu;
     font-size: 1.5em;
     cursor: pointer;
-    transition: color 0.3s ease; 
-    
+    transition: color 0.3s ease;
 }
 
 .dropdown-content {
@@ -321,10 +258,9 @@ p {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     font-family: Ubuntu;
-    left: 0px; 
+    left: 0px;
     top: calc(100%);
     transition: display 0.3s ease-in-out;
-    
 }
 
 .dropdown-content a {
@@ -333,10 +269,13 @@ p {
     text-decoration: none;
     display: block;
     font-family: Ubuntu;
-    
 }
 
 .dropdown-content a:hover {
     background-color: var(--button-background-light);
-    
+}
+
+.light-mode .icon-container,
+.light-mode .dropdown-container {
+    border: 1px solid black;
 }
