@@ -41,14 +41,43 @@
             <a href="https://forms.gle/RtKYyrbnDCLBHbbo7" target="_blank"><i class="fa-solid fa-bug" style="color: #000000";></i></a>
         </div>
     </div>
+
+    <!-- Sign-In Form -->
+    <div class="sign-in-container">
+        <h2>Sign In</h2>
+        <form id="signInForm">
+            <label for="Student ID">Student ID:</label>
+            <input type="text" id="Student ID" name="Student ID" required>
+            <label for="password">Password:</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <button type="button" id="togglePassword">Show</button>
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+        <div id="signInMessage"></div>
+    </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() { //DOMContentLoaded = When Website is built
-            const savedTheme = localStorage.getItem('theme'); //saved theme set into const variable 
-            if (savedTheme) { 
-                setTheme(savedTheme); //use setTheme function to set the theme of the website to what was saved locally
+        document.addEventListener('DOMContentLoaded', function() { /*When the website is built use saved theme */
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
             } else {
-                setTheme('dark'); // Default to dark mode
+                setTheme('dark');
             }
+            /*function for show/hide button*/
+            document.getElementById('togglePassword').addEventListener('click', function() {
+                const passwordField = document.getElementById('password');
+                const passwordFieldType = passwordField.getAttribute('type');
+                if (passwordFieldType === 'password') {
+                    passwordField.setAttribute('type', 'text');
+                    this.innerText = 'Hide';
+                } else {
+                    passwordField.setAttribute('type', 'password');
+                    this.innerText = 'Show';
+                }
+            });
         });
 
         function setTheme(theme) {
@@ -57,13 +86,13 @@
             } else if (theme === 'light') {
                 toggleLightMode();
             }
-            localStorage.setItem('theme', theme); //saves the theme 
+            localStorage.setItem('theme', theme); /*save theme locally*/
         }
 
         function toggleLightMode() {
             document.body.classList.add('light-mode');
             document.body.classList.remove('dark-mode');
-            document.querySelector('#bars-icon i').style.color = '#000000'; // Black bars icon in light mode
+            document.querySelector('#bars-icon i').style.color = '#000000';
             document.querySelector('#theme-icon i').classList.add('fa-sun');
             document.querySelector('#theme-icon i').classList.remove('fa-moon');
             document.querySelector('#theme-icon').style.borderColor = "black";
@@ -73,7 +102,7 @@
         function toggleDarkMode(){
             document.body.classList.add('dark-mode');
             document.body.classList.remove('light-mode');
-            document.querySelector('#bars-icon i').style.color = '#ffffff'; // White bars icon in dark mode
+            document.querySelector('#bars-icon i').style.color = '#ffffff';
             document.querySelector('#theme-icon i').classList.add('fa-moon');
             document.querySelector('#theme-icon i').classList.remove('fa-sun');
             document.querySelector('#theme-icon').style.borderColor = "white";

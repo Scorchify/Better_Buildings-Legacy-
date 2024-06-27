@@ -279,3 +279,78 @@ p {
 .light-mode .dropdown-container {
     border: 1px solid black;
 }
+
+/* Sign-In Form */
+.sign-in-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.sign-in-container h2 {
+    font-family: Ubuntu;
+}
+
+.sign-in-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.sign-in-container label {
+    margin: 10px 0 5px 0;
+    font-family: Ubuntu;
+}
+
+.sign-in-container input {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-family: Ubuntu;
+}
+
+.sign-in-container button {
+    padding: 10px 20px;
+    background-color: var(--button-background-light);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: Ubuntu;
+}
+
+.sign-in-container button:hover {
+    background-color: var(--button-background-dark);
+}
+
+#signInMessage {
+    margin-top: 10px;
+    font-family: Ubuntu;
+}
+
+/* Add this to your existing CSS */
+
+.password-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.password-container input {
+    flex-grow: 1;
+}
+
+.password-container button {
+    padding: 8px 12px;
+    margin-left: 10px;
+    background-color: var(--button-background-light);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: Ubuntu;
+}
+
+.password-container button:hover {
+    background-color: var(--button-background-dark);
+}
