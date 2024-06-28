@@ -25,11 +25,28 @@
             </div>
         </div>
     </div>
+<div class="container">
     <div class="text-container">
         <div class="header-text">
             <h1>Better Buildings</h1>
         </div>
     </div>
+    <div class="sign-in-container">
+        <h2>Sign In</h2>
+        <form id="signInForm">
+            <label for="Student ID"></label>
+            <input type="text" placeholder="Student ID" id="Student ID" name="Student ID" required>
+            <label for="password"></label>
+            <div class="password-container">
+                <input type="password" placeholder="Password" id="password" name="password" required>
+                <button type="button" id="togglePassword">Show</button>
+            </div>
+            <button type="submit">Log In</button>
+        </form>
+        <div id="signInMessage"></div>
+    </div>
+</div>
+
     <div class="colored-box">
         <div class="footer">
             <p>Better Buildings by Ayden Yeung and Julian Givens</p>
@@ -42,22 +59,8 @@
         </div>
     </div>
 
-    <!-- Sign-In Form -->
-    <div class="sign-in-container">
-        <h2>Sign In</h2>
-        <form id="signInForm">
-            <label for="Student ID">Student ID:</label>
-            <input type="text" id="Student ID" name="Student ID" required>
-            <label for="password">Password:</label>
-            <div class="password-container">
-                <input type="password" id="password" name="password" required>
-                <button type="button" id="togglePassword">Show</button>
-            </div>
-            <button type="submit">Sign In</button>
-        </form>
-        <div id="signInMessage"></div>
-    </div>
-
+    
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() { /*When the website is built use saved theme */
             const savedTheme = localStorage.getItem('theme');
