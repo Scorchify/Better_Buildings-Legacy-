@@ -4,67 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MCPS Website</title>
-    <link rel="stylesheet" href="stylehomepage.css">
-
-    <style>
-      h1 {
-        font-weight: bold; 
-        font-size: 85px;
-        font-family:'Times New Roman', Times, serif;
-        color:rgb(0, 0, 0)
-      }
-
-      p1 {
-        font-size: 20px;
-        font-family:'Times New Roman', Times, serif;
-        color: rgb(0, 0, 0); 
-      }
-
-
-    </style>
+    <link rel="stylesheet" href="signIn.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div class="buttons-container">
-        <a style="text-decoration:none" href="reporting.html">
-            <button class="styled-button">Report Here</button>
-        </a>
-        <a style="text-decoration:none" href="m.html">
-            <button class="styled-button">Terms</button>
-        </a>
-    </div>
-    <a href="https://www2.montgomeryschoolsmd.org" target="blank">
-        <img src="https://i.postimg.cc/RVNQJfj4/BETTER-BUILDING-APP.png" alt="MCPS" width="150" height="200" class="top-right-image"> 
-    </a>
-    <div class="colored-box">
-        <div class="bug-reporting">
-            <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSetSQowoOuET_7XUdFerB9KZQukFbGGAZmjg7Hc8O3Xd7mYvA/viewform?usp=sf_link" target="blank">Bug Reporting</a></p>
-            <div class="dev-logs">
-                <p><a href="https://docs.google.com/document/d/19m-vDVjdzDHj07zTTO0uB0-sm-3LkRTEOdDqFbCC68E/edit" target="blank">Dev Logs</a></p>
-                <div class="about-us">
-                    <p><a href="aboutus.html" target="blank">Contact Us</a></p>
-                </div>
+    <div class="wrapper">
+        <form action="">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Student ID" required>
+                <i class='bx bxs-user'></i>
             </div>
-        </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="remember-me">
+                <label><input type="checkbox"> Remember me </label>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
     </div>
-    <h1> Sign up for the Better Building App!</h1>
-
-    <p1> Follow the prompts, entering your school, and the secure one time use code given to you in your email. </p1>
-    <form> 
-        What school do you currently attend? <br>
-        <input type="text" name="school">
-    </form>
-    <br>
-    <form>
-        What is the one time secure code given to you from your school? <br> 
-        <input type="text" name="code">
-
-    </form> 
-
-    <br>
-    <form>
-    What is your name (first and last)? <br> 
-    <input type="text" name="name">
-</form>
-<p>
-    <input type = "submit" name = "submit" value = "Submit" />
-  </p>
+</body>
+</html>
