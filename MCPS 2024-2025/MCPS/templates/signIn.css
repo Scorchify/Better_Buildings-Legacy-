@@ -14,6 +14,22 @@
     --sun-outline-color: #101314;
 }
 
+/* page transitions */
+.container {
+    animation: transitionIn 0.75s;
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
+
 @font-face {
     font-family: Ubuntu;
     src: url(Ubuntu-Regular.ttf);
@@ -21,10 +37,92 @@
 
 @font-face {
     font-family: Cera;
-    src: url(CeraPro-Regular.otf) format("opentype");
+    src: url(CeraPro-Regular.otf);
 }
 
-* { 
+.Title { 
+    font-family: Ubuntu;
+    font-size: 18px;
+    top: 0px;
+    left: 5px; 
+    position: absolute;
+}
+
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+body.light-mode {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+.theme-dropdown {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+.theme-dropdown i {
+    font-size: 22px;
+}
+
+.theme-dropdown.light-mode {
+    border-color: black;
+}
+
+.theme-dropdown.dark-mode {
+    border-color: white;
+}
+
+.theme-content {
+    display: none;
+    position: absolute;
+    background-color: var(--dropdown-background);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    font-family: Ubuntu;
+    right: 0;
+    top: calc(100%);
+    border-radius: 10px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.theme-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: Ubuntu;
+}
+
+.theme-content a:hover {
+    background-color: var(--button-background-light);
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -38,7 +136,7 @@ body {
     min-height: 100vh;
     background: url('img.jpg') no-repeat;
     background-size: cover;
-    background-position: center; 
+    background-position: center;
 }
 
 .wrapper {
@@ -74,26 +172,26 @@ body {
     border-radius: 40px;
     font-size: 16px;
     color: #fff;
-    padding: 0 55px 0 20px; 
+    padding: 0 55px 0 20px;
 }
 
 .input-box input::placeholder {
     color: #fff;
 }
 
-.input-box i { 
+.input-box i {
     position: absolute;
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 100px; 
+    font-size: 20px;
 }
 
-.wrapper .remember-me { 
+.wrapper .remember-me {
     display: flex;
     justify-content: space-between;
     font-size: 14.5px;
-    margin: -15px 0 15px; 
+    margin: -15px 0 15px;
 }
 
 .remember-me label input {

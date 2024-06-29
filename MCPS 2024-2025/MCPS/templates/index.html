@@ -4,113 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MCPS Website</title>
-    <link rel="stylesheet" href="stylehomepage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="signIn.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="menu-container">
-        <div class="dropdown-container">
-            <button class="dropdown-button" id="bars-icon"><i class="fa-solid fa-bars" style="color: #ffffff;"></i></button>
-            <div class="dropdown-content">
-                <a href="reporting.html">Report Here</a>
-                <a href="signIn.html">Sign Up</a>
-                <a href="https://www2.montgomeryschoolsmd.org" target="_blank">MCPS</a>
-            </div>
-        </div>
-        <div class="icon-container" id="theme-icon">
-            <i class="fa-solid fa-moon"></i>
-            <div id="theme-dropdown" class="theme-content">
-                <a href="#" onclick="setTheme('dark')">Dark Mode</a>
-                <a href="#" onclick="setTheme('light')">Light Mode</a>
-            </div>
+    <div class="Title">
+        <h1>MCPS Better Buildings</h1>
+    </div>
+    <div class="theme-dropdown" id="theme-icon">
+        <i class="fas fa-moon"></i>
+        <div id="theme-content" class="theme-content">
+            <a href="#" onclick="setTheme('dark')">Dark Mode</a>
+            <a href="#" onclick="setTheme('light')">Light Mode</a>
         </div>
     </div>
-<div class="container">
-    <div class="text-container">
-        <div class="header-text">
-            <h1>Better Buildings</h1>
+    <div class="container"> 
+        <div class="wrapper">
+            <form action="">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Student ID" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="remember-me">
+                    <label><input type="checkbox"> Remember me </label>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
         </div>
     </div>
-    <div class="sign-in-container">
-        <h2>Sign In</h2>
-        <form id="signInForm">
-            <label for="Student ID"></label>
-            <input type="text" placeholder="Student ID" id="Student ID" name="Student ID" required>
-            <label for="password"></label>
-            <div class="password-container">
-                <input type="password" placeholder="Password" id="password" name="password" required>
-                <button type="button" id="togglePassword">Show</button>
-            </div>
-            <button type="submit">Log In</button>
-        </form>
-        <div id="signInMessage"></div>
-    </div>
-</div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else {
+            setTheme('dark');
+        }
 
-    <div class="colored-box">
-        <div class="footer">
-            <p>Better Buildings by Ayden Yeung and Julian Givens</p>
-        </div>
-        <div class="social-icons">
-            <a href="https://discord.gg/Vw9PthfQEz" target="_blank"><i class="fa-brands fa-discord" style="color: #000000";></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram" style="color: #000000";></i></a>
-            <a href="https://github.com/Scorchify/Better_Buildings" target="_blank"><i class="fa-brands fa-github" style="color: #000000";></i></a>
-            <a href="https://forms.gle/RtKYyrbnDCLBHbbo7" target="_blank"><i class="fa-solid fa-bug" style="color: #000000";></i></a>
-        </div>
-    </div>
-
-    
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() { /*When the website is built use saved theme */
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                setTheme(savedTheme);
-            } else {
-                setTheme('dark');
-            }
-            /*function for show/hide button*/
-            document.getElementById('togglePassword').addEventListener('click', function() {
-                const passwordField = document.getElementById('password');
-                const passwordFieldType = passwordField.getAttribute('type');
-                if (passwordFieldType === 'password') {
-                    passwordField.setAttribute('type', 'text');
-                    this.innerText = 'Hide';
-                } else {
-                    passwordField.setAttribute('type', 'password');
-                    this.innerText = 'Show';
-                }
-            });
+        // Add click event to show/hide the dropdown menu
+        document.getElementById('theme-icon').addEventListener('click', function() {
+            const themeContent = document.getElementById('theme-content');
+            themeContent.style.display = themeContent.style.display === 'block' ? 'none' : 'block';
         });
 
-        function setTheme(theme) {
-            if (theme === 'dark') {
-                toggleDarkMode();
-            } else if (theme === 'light') {
-                toggleLightMode();
+        // Hide the dropdown menu when clicking outside of it
+        window.addEventListener('click', function(event) {
+            if (!event.target.matches('#theme-icon, #theme-icon *')) {
+                const themeContent = document.getElementById('theme-content');
+                if (themeContent.style.display === 'block') {
+                    themeContent.style.display = 'none';
+                }
             }
-            localStorage.setItem('theme', theme); /*save theme locally*/
-        }
+        });
+    });
 
-        function toggleLightMode() {
-            document.body.classList.add('light-mode');
-            document.body.classList.remove('dark-mode');
-            document.querySelector('#bars-icon i').style.color = '#000000';
-            document.querySelector('#theme-icon i').classList.add('fa-sun');
-            document.querySelector('#theme-icon i').classList.remove('fa-moon');
-            document.querySelector('#theme-icon').style.borderColor = "black";
-            document.querySelector('#bars-icon').style.borderColor = "black";
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            toggleDarkMode();
+        } else if (theme === 'light') {
+            toggleLightMode();
         }
+        localStorage.setItem('theme', theme);
+    }
 
-        function toggleDarkMode(){
-            document.body.classList.add('dark-mode');
-            document.body.classList.remove('light-mode');
-            document.querySelector('#bars-icon i').style.color = '#ffffff';
-            document.querySelector('#theme-icon i').classList.add('fa-moon');
-            document.querySelector('#theme-icon i').classList.remove('fa-sun');
-            document.querySelector('#theme-icon').style.borderColor = "white";
-            document.querySelector('#bars-icon').style.borderColor = "white";
-        }
-    </script>
-</body>
+    function toggleLightMode() {
+        document.body.classList.add('light-mode');
+        document.body.classList.remove('dark-mode');
+        document.querySelector('#theme-icon i').classList.add('fa-sun');
+        document.querySelector('#theme-icon i').classList.remove('fa-moon');
+        document.querySelector('#theme-icon').classList.add('light-mode');
+        document.querySelector('#theme-icon').classList.remove('dark-mode');
+    }
+
+    function toggleDarkMode(){
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+        document.querySelector('#theme-icon i').classList.add('fa-moon');
+        document.querySelector('#theme-icon i').classList.remove('fa-sun');
+        document.querySelector('#theme-icon').classList.add('dark-mode');
+        document.querySelector('#theme-icon').classList.remove('light-mode');
+    }
+</script>
 </html>
+
