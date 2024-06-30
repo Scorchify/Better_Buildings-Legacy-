@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCPS Second Page</title>
+    <link rel="stylesheet" href="second.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check for saved theme in localStorage
+            const savedTheme = localStorage.getItem('theme') || 'dark-mode';
+            document.documentElement.className = savedTheme;
+        });
+
+        function toggleTheme(theme) {
+            document.documentElement.className = theme;
+            localStorage.setItem('theme', theme);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="theme-dropdown" id="theme-icon">
+            <i class="fas fa-moon"></i>
+            <div id="theme-content" class="theme-content">
+                <a href="#" onclick="toggleTheme('dark-mode')">Dark Mode</a>
+                <a href="#" onclick="toggleTheme('light-mode')">Light Mode</a>
+            </div>
+        </div>
+        <div class="wrapper">
+            <h1>Welcome to the Second Page</h1>
+        </div>
+    </div>
+</body>
+</html>

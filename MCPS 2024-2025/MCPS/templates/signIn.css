@@ -5,9 +5,9 @@
     --text-dark: #e3e4e8;
     --link-light: #17181c;
     --link-dark: #e3e4e8;
-    --button-background-light: #323d62;
+    --button-background-light: #0a0b0f; /* Changed for light mode */
     --button-background-dark: #3558cb;
-    --button-text-light: #0a0b0f;
+    --button-text-light: #fff; /* Changed for light mode */
     --button-text-dark: #101314;
     --bottom-panel-color: #3457cb;
     --dropdown-background: #070b21;
@@ -51,11 +51,17 @@
 body.dark-mode {
     background-color: var(--background-dark);
     color: var(--text-dark);
+    background: url('dark-mode.svg') no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 body.light-mode {
     background-color: var(--background-light);
     color: var(--text-light);
+    background: url('light-mode.svg') no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .theme-dropdown {
@@ -63,7 +69,7 @@ body.light-mode {
     top: 10px;
     right: 10px;
     cursor: pointer;
-    border: 1px solid #fff;
+    border: 1px solid;
     border-radius: 10px;
     padding: 10px;
     display: flex;
@@ -77,12 +83,12 @@ body.light-mode {
     font-size: 22px;
 }
 
-.theme-dropdown.light-mode {
-    border-color: black;
+body.dark-mode .theme-dropdown {
+    border-color: white;
 }
 
-.theme-dropdown.dark-mode {
-    border-color: white;
+body.light-mode .theme-dropdown {
+    border-color: black;
 }
 
 .theme-content {
@@ -134,9 +140,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('img.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
 }
 
 .wrapper {
@@ -153,6 +156,11 @@ body {
 .wrapper h1 {
     font-size: 36px;
     text-align: center;
+    color: var(--text-dark);
+}
+
+body.light-mode .wrapper h1 {
+    color: var(--text-light);
 }
 
 .wrapper .input-box {
@@ -176,7 +184,16 @@ body {
 }
 
 .input-box input::placeholder {
-    color: #fff;
+    color: white; /* Placeholder text color for dark mode */
+}
+
+body.light-mode .input-box input {
+    color: var(--text-light);
+    border-color: rgba(0, 0, 0, .2);
+}
+
+body.light-mode .input-box input::placeholder {
+    color: black; /* Placeholder text color for light mode */
 }
 
 .input-box i {
@@ -185,6 +202,11 @@ body {
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
+    color: #fff;
+}
+
+body.light-mode .input-box i {
+    color: var(--text-light);
 }
 
 .wrapper .remember-me {
@@ -192,6 +214,11 @@ body {
     justify-content: space-between;
     font-size: 14.5px;
     margin: -15px 0 15px;
+    color: var(--text-dark);
+}
+
+body.light-mode .remember-me {
+    color: var(--text-light);
 }
 
 .remember-me label input {
@@ -202,13 +229,22 @@ body {
 .wrapper .btn {
     width: 100%;
     height: 45px;
-    background: #fff;
+    background: white; /* Default for dark mode */
     border: none;
     outline: none;
     border-radius: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     cursor: pointer;
     font-size: 16px;
-    color: #333;
+    color: --background-dark;
     font-weight: 600;
+}
+
+body.light-mode .wrapper .btn {
+    background: var(--button-background-light); /* Background for light mode */
+    color: var(--button-text-light); /* Text color for light mode */
+}
+
+body.light-mode .theme-content a {
+    color: white; /* Ensure the theme content links remain white */
 }
