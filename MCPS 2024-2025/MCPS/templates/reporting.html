@@ -85,6 +85,31 @@
             document.querySelector('#theme-icon i').className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
             localStorage.setItem('theme', theme);
         }
+
+    const blacklist = ["fuck", "shit", "bitch"]; /*maybe implement a small scale ai to detect this (extra collegio buff)*/
+
+    function containsBlacklistedWord(input) {
+        const words = input.split(' ');
+        for (let word of words) {
+            if (blacklist.includes(word.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    document.getElementById('inputForm').addEventListener('submit', function(event) {
+        const inputBox = document.getElementById('inputBox');
+        const errorMessage = document.getElementById('error-message');
+        const userInput = inputBox.value;
+
+        if (containsBlacklistedWord(userInput)) {
+            event.preventDefault(); // Prevent form submission
+            errorMessage.style.display = 'block';
+        } else {
+            errorMessage.style.display = 'none';
+        }
+    }); 
     </script>
 </body>
 </html>
