@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MCPS Website</title>
-    <link rel="stylesheet" href="signIn.css">
+    <link rel="stylesheet" href="index.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="fbox">
-    <img src="Logo.png" alt="Core" class="img">
-    <div class="Title">
-        <h1>MCPS Core</h1>
+    <div class="header">
+        <img src="Logo.png" alt="Core" class="img">
+        <div class="Title">
+            <h1>MCPS Better Buildings</h1>
+        </div>
     </div>
     <div class="theme-dropdown" id="theme-icon">
         <i class="fas fa-moon"></i>
         <div id="theme-content" class="theme-content">
             <a href="#" onclick="setTheme('dark')">Dark Mode</a>
             <a href="#" onclick="setTheme('light')">Light Mode</a>
-            <a href="reporting.html">Reporting</a> <!-- Testing Purposes Only/Not included in 1.0-->
+            <a href="reporting.html">Reporting</a> <!-- Testing Purposes Only/Not included in v1.0-->
+            <a href="display.html">Issue Dashboard</a> <!-- Testing Purposes Only/Not included in v1.0-->
         </div>
     </div>
-</div>
-   
-    
-        <div class="wrapper">
-            <form action="">
+
+    <div class="wrapper">
+        <form action=""> <!--Put where to send data here-->
             <div class="container">
                 <h1>Login</h1>
                 <div class="input-box">
@@ -42,9 +42,9 @@
                 </div>
                 <button type="submit" class="btn">Login</button>
             </div>
-            </form>
-        </div>
-  
+        </form>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const savedTheme = localStorage.getItem('theme');

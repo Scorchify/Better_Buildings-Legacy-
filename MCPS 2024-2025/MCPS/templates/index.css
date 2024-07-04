@@ -5,16 +5,16 @@
     --text-dark: #e3e4e8;
     --link-light: #17181c;
     --link-dark: #e3e4e8;
-    --button-background-light: #0a0b0f; /* Changed for light mode */
+    --button-background-light: #0a0b0f;
     --button-background-dark: #3558cb;
-    --button-text-light: #fff; /* Changed for light mode */
+    --button-text-light: #fff;
     --button-text-dark: #101314;
     --bottom-panel-color: #3457cb;
     --dropdown-background: #070b21;
     --sun-outline-color: #101314;
 }
 
-/* page transitions */
+/* Page transitions */
 .container {
     animation: transitionIn 0.75s;
 }
@@ -39,28 +39,31 @@
     font-family: Cera;
     src: url(CeraPro-Regular.otf);
 }
-.fbox { 
+
+.header {
     display: flex;
     align-items: center;
     position: absolute;
-    top: -5.5vh;
-    left: -2.5vw;
+    top: -5vh;
+    left: -3.75vw;
 }
 
 .img {
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
 }
 
-.Title { 
+.Title {
     font-family: Ubuntu;
     font-size: 20px;
     font-weight: 600;
-    margin-left: -2.5vw; /* Adjust margin to reduce space between image and title */
+    margin-left: -3vw;
 }
+
 .theme-dropdown {
     position: absolute;
-    margin-left: 100.5vw;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
     border: 1px solid;
     border-radius: 10px;
@@ -71,7 +74,6 @@
     width: 40px;
     height: 40px;
 }
-
 
 body.dark-mode {
     background-color: var(--background-dark);
@@ -88,8 +90,6 @@ body.light-mode {
     background-size: cover;
     background-position: center;
 }
-
-
 
 .theme-dropdown i {
     font-size: 22px;
@@ -128,6 +128,17 @@ body.light-mode .theme-dropdown {
     }
 }
 
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
 .theme-content a {
     color: white;
     padding: 12px 16px;
@@ -147,11 +158,16 @@ body.light-mode .theme-dropdown {
     font-family: Ubuntu;
 }
 
-body {
+html, body {
+    overflow: hidden; /* Remove vertical and horizontal scrollbars */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+}
+
+body.light-mode .theme-content a {
+    color: white; /* Ensure the theme content links remain white */
 }
 
 .wrapper {
@@ -166,7 +182,7 @@ body {
 }
 
 .wrapper h1 {
-    font-size: 36px;
+    font-size: 2.25em;
     text-align: center;
     color: var(--text-dark);
 }
@@ -255,8 +271,4 @@ body.light-mode .remember-me {
 body.light-mode .wrapper .btn {
     background: var(--button-background-light); /* Background for light mode */
     color: var(--button-text-light); /* Text color for light mode */
-}
-
-body.light-mode .theme-content a {
-    color: white; /* Ensure the theme content links remain white */
 }
