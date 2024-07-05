@@ -19,31 +19,31 @@
         <div id="theme-content" class="theme-content">
             <a href="#" onclick="setTheme('dark')">Dark Mode</a>
             <a href="#" onclick="setTheme('light')">Light Mode</a>
-            <a href="index.html">Sign-In</a> <!-- Testing Purposes Only/Not included in 1.0-->
-            <a href="display.html">Issue Dashboard</a> <!-- Testing Purposes Only/Not included in 1.0-->
+            <a href="reporting.html">Reporting</a> <!-- Testing Purposes Only/Not included in v1.0-->
+            <a href="display.html">Issue Dashboard</a> <!-- Testing Purposes Only/Not included in v1.0-->
         </div>
     </div>
 
     <div class="wrapper">
-        <form action="">
-        <h1>Report an Issue<h1>
-        <div class="container">
-            <br>
-            <h2>How would you categorize your issue?</h2>
-            <div class="input-box">
-            <textarea placeholder="Enter your response here!" required></textarea>
+        <form action=""> <!--Put where to send data here-->
+            <div class="container">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Student ID" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="remember-me">
+                    <label><input type="checkbox"> Remember me </label>
+                </div>
+                <button type="submit" class="btn">Login</button>
             </div>
-            <br>
-            <h2>What is the issue and where is it occuring?</h2>
-            <div class="input-box">
-            <textarea placeholder="Enter your response here!" required></textarea>
-            </div>
-            <button type="submit" class="btn">Report</button>
         </form>
-        </div>
     </div>
 
-    <!--JavaScript-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const savedTheme = localStorage.getItem('theme');
@@ -67,15 +67,6 @@
                         themeContent.style.display = 'none';
                     }
                 }
-            });
-
-            // Auto-expand textareas
-            const textareas = document.querySelectorAll('textarea');
-            textareas.forEach(textarea => {
-                textarea.addEventListener('input', function() {
-                    this.style.height = 'auto';
-                    this.style.height = this.scrollHeight + 'px';
-                });
             });
         });
 
@@ -115,27 +106,6 @@
     to {
         opacity: 1;
         transform: rotateX(0);
-    }
-}
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-10px);
     }
 }
 
@@ -190,7 +160,6 @@ body.dark-mode {
     background: url('dark-mode.svg') no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 
 body.light-mode {
@@ -199,7 +168,6 @@ body.light-mode {
     background: url('light-mode.svg') no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 
 .theme-dropdown i {
@@ -223,9 +191,31 @@ body.light-mode .theme-dropdown {
     z-index: 1;
     font-family: Ubuntu;
     right: 0;
-    top: calc(100%);
+    top: calc(100% + 10px);
     border-radius: 10px;
     animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 }
 
 .theme-content a {
@@ -248,13 +238,11 @@ body.light-mode .theme-dropdown {
 }
 
 html, body {
-    overflow-x: hidden; /* Remove horizontal scrollbars */
-    min-height: 100vh;
-    height: 100%;
-    background-attachment: fixed;
+    overflow: hidden; /* Remove vertical and horizontal scrollbars */
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
+    min-height: 100vh;
 }
 
 body.light-mode .theme-content a {
@@ -270,8 +258,6 @@ body.light-mode .theme-content a {
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
-    position: absolute; 
-    top: 10vh;
 }
 
 .wrapper h1 {
@@ -279,52 +265,72 @@ body.light-mode .theme-content a {
     text-align: center;
     color: var(--text-dark);
 }
-.wrapper h2 { 
-    font-size: .75em;
-    text-align: center;
-    color: var(--text-dark);
-}
 
 body.light-mode .wrapper h1 {
     color: var(--text-light);
 }
-body.light-mode .wrapper h2 {
-    color: var(--text-light);
-}
 
-/*input boxes*/
 .wrapper .input-box {
     position: relative;
     width: 100%;
+    height: 50px;
     margin: 30px 0;
 }
 
-.input-box textarea {
+.input-box input {
     width: 100%;
-    min-height: 50px;
+    height: 100%;
     background: transparent;
     border: none;
     outline: none;
     border: 2px solid rgba(255, 255, 255, .2);
-    border-radius: 10px;
+    border-radius: 40px;
     font-size: 16px;
     color: #fff;
-    padding: 10px 20px;
-    resize: none;
-    overflow: hidden;
+    padding: 0 55px 0 20px;
 }
 
-.input-box textarea::placeholder {
+.input-box input::placeholder {
     color: white; /* Placeholder text color for dark mode */
 }
 
-body.light-mode .input-box textarea {
+body.light-mode .input-box input {
     color: var(--text-light);
     border-color: rgba(0, 0, 0, .2);
 }
 
-body.light-mode .input-box textarea::placeholder {
+body.light-mode .input-box input::placeholder {
     color: black; /* Placeholder text color for light mode */
+}
+
+.input-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #fff;
+}
+
+body.light-mode .input-box i {
+    color: var(--text-light);
+}
+
+.wrapper .remember-me {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+    color: var(--text-dark);
+}
+
+body.light-mode .remember-me {
+    color: var(--text-light);
+}
+
+.remember-me label input {
+    accent-color: #fff;
+    margin-right: 3px;
 }
 
 .wrapper .btn {

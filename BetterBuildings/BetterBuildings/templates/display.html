@@ -19,29 +19,12 @@
         <div id="theme-content" class="theme-content">
             <a href="#" onclick="setTheme('dark')">Dark Mode</a>
             <a href="#" onclick="setTheme('light')">Light Mode</a>
-            <a href="reporting.html">Reporting</a> <!-- Testing Purposes Only/Not included in v1.0-->
-            <a href="display.html">Issue Dashboard</a> <!-- Testing Purposes Only/Not included in v1.0-->
+            <a href="reporting.html">Reporting</a> <!-- Testing Purposes Only/Not included in 1.0-->
+            <a href="index.html">Sign-In</a> <!-- Testing Purposes Only/Not included in 1.0-->
         </div>
     </div>
 
     <div class="wrapper">
-        <form action=""> <!--Put where to send data here-->
-            <div class="container">
-                <h1>Login</h1>
-                <div class="input-box">
-                    <input type="text" placeholder="Student ID" required>
-                    <i class='bx bxs-user'></i>
-                </div>
-                <div class="input-box">
-                    <input type="password" placeholder="Password" required>
-                    <i class='bx bxs-lock-alt'></i>
-                </div>
-                <div class="remember-me">
-                    <label><input type="checkbox"> Remember me </label>
-                </div>
-                <button type="submit" class="btn">Login</button>
-            </div>
-        </form>
     </div>
 
     <script>
@@ -191,7 +174,7 @@ body.light-mode .theme-dropdown {
     z-index: 1;
     font-family: Ubuntu;
     right: 0;
-    top: calc(100%);
+    top: calc(100% + 10px);
     border-radius: 10px;
     animation: fadeIn 0.3s ease-in-out;
 }
@@ -258,98 +241,6 @@ body.light-mode .theme-content a {
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
-}
-
-.wrapper h1 {
-    font-size: 2.25em;
-    text-align: center;
-    color: var(--text-dark);
-}
-
-body.light-mode .wrapper h1 {
-    color: var(--text-light);
-}
-
-.wrapper .input-box {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    margin: 30px 0;
-}
-
-.input-box input {
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    border: 2px solid rgba(255, 255, 255, .2);
-    border-radius: 40px;
-    font-size: 16px;
-    color: #fff;
-    padding: 0 55px 0 20px;
-}
-
-.input-box input::placeholder {
-    color: white; /* Placeholder text color for dark mode */
-}
-
-body.light-mode .input-box input {
-    color: var(--text-light);
-    border-color: rgba(0, 0, 0, .2);
-}
-
-body.light-mode .input-box input::placeholder {
-    color: black; /* Placeholder text color for light mode */
-}
-
-.input-box i {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #fff;
-}
-
-body.light-mode .input-box i {
-    color: var(--text-light);
-}
-
-.wrapper .remember-me {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14.5px;
-    margin: -15px 0 15px;
-    color: var(--text-dark);
-}
-
-body.light-mode .remember-me {
-    color: var(--text-light);
-}
-
-.remember-me label input {
-    accent-color: #fff;
-    margin-right: 3px;
-}
-
-.wrapper .btn {
-    width: 100%;
-    height: 45px;
-    background: white; /* Default for dark mode */
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    cursor: pointer;
-    font-size: 16px;
-    color: --background-dark;
-    font-weight: 600;
-}
-
-body.light-mode .wrapper .btn {
-    background: var(--button-background-light); /* Background for light mode */
-    color: var(--button-text-light); /* Text color for light mode */
 }
 
     </style>
