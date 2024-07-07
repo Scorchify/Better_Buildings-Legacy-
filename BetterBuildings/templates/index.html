@@ -119,6 +119,17 @@
     font-family: Cera;
     src: url("{% static 'fonts/CeraPro-Regular.otf' %}");
 }
+@keyframes spin-logo {
+    0% {
+        transform: rotate(0deg);
+    }
+    30% {
+        transform: rotate(-180deg); /* Counterclockwise */
+    }
+    100% {
+        transform: rotate(720deg); /* Clockwise */
+    }
+}
 
 .header {
     display: flex;
