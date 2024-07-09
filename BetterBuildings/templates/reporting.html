@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -9,7 +10,7 @@
 </head>
 <body>
     <div class="header">
-        <img src="Logo.png" alt="Core" class="img">
+        <img src="{% static 'images/Logo.png' %}" alt="Core" class="img">
         <div class="Title">
             <h1>MCPS Better Buildings</h1>
         </div>
@@ -19,8 +20,8 @@
         <div id="theme-content" class="theme-content">
             <a href="#" onclick="setTheme('dark')">Dark Mode</a>
             <a href="#" onclick="setTheme('light')">Light Mode</a>
-            <a href="index.html">Sign-In</a> <!-- Testing Purposes Only/Not included in 1.0-->
-            <a href="display.html">Issue Dashboard</a> <!-- Testing Purposes Only/Not included in 1.0-->
+            <a href="{% url 'home' %}">Issue Dashboard</a>
+            <a href="{% url 'reporting' %}">Reporting</a>
         </div>
     </div>
 
@@ -141,12 +142,12 @@
 
 @font-face {
     font-family: Ubuntu;
-    src: url(Ubuntu-Regular.ttf);
+    src: url("{% static 'fonts/Ubuntu-Regular.ttf' %}");
 }
 
 @font-face {
     font-family: Cera;
-    src: url(CeraPro-Regular.otf);
+    src: url("{% static 'fonts/CeraPro-Regular.otf' %}");
 }
 
 .header {
@@ -187,7 +188,7 @@
 body.dark-mode {
     background-color: var(--background-dark);
     color: var(--text-dark);
-    background: url('dark-mode.svg') no-repeat;
+    background: url("{% static 'images/dark-mode.svg' %}") no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -196,7 +197,7 @@ body.dark-mode {
 body.light-mode {
     background-color: var(--background-light);
     color: var(--text-light);
-    background: url('light-mode.svg') no-repeat;
+    background: url("{% static 'images/light-mode.svg' %}") no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
