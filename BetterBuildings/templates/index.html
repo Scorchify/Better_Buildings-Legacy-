@@ -20,8 +20,8 @@
         <div id="theme-content" class="theme-content">
             <a href="#" onclick="setTheme('dark')">Dark Mode</a>
             <a href="#" onclick="setTheme('light')">Light Mode</a>
-            <a href="reporting.html">Reporting</a> <!-- Testing Purposes Only/Not included in v1.0-->
-            <a href="display.html">Issue Dashboard</a> <!-- Testing Purposes Only/Not included in v1.0-->
+            <a href="{% url 'reporting' %}">Reporting</a>
+            <a href="{% url 'display' %}">Issue Dashboard</a>
         </div>
     </div>
 
