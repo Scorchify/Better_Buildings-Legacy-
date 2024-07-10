@@ -20,35 +20,17 @@
         <div id="theme-content" class="theme-content">
             <a href="#" onclick="setTheme('dark')">Dark Mode</a>
             <a href="#" onclick="setTheme('light')">Light Mode</a>
-            <a href="{% url 'home' %}">Issue Dashboard</a>
             <a href="{% url 'reporting' %}">Reporting</a>
+            <a href="{% url 'home' %}">Issue Dashboard</a>
         </div>
     </div>
 
     <div class="wrapper">
-        <form action="/reports/" method ="post">
-            {% csrf_token %}
-            {{ form }}
-        <h1>Report an Issue<h1>
         <div class="container">
-            <br>
-            <h2>How would you categorize your issue?</h2>
-            <div class="input-box">
-            <input id="q1" type="text" name="q1" value="{{ q1 }}"required>
-            <textarea placeholder="Enter your response here!"></textarea>
-            </div>
-            <br>
-            <h2>What is the issue and where is it occuring?</h2>
-            <div class="input-box">
-            <textarea placeholder="Enter your response here!" required></textarea>
-            <input id="q2" type="text" name="q2" value="{{ q2 }}"required>
-            </div>
-            <button type="submit" class="btn">Report</button>
-        </form>
-        </div>
+            <h1>Report submitted successfully! </h1>
+        <div> 
     </div>
 
-    <!--JavaScript-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const savedTheme = localStorage.getItem('theme');
@@ -72,15 +54,6 @@
                         themeContent.style.display = 'none';
                     }
                 }
-            });
-
-            // Auto-expand textareas
-            const textareas = document.querySelectorAll('textarea');
-            textareas.forEach(textarea => {
-                textarea.addEventListener('input', function() {
-                    this.style.height = 'auto';
-                    this.style.height = this.scrollHeight + 'px';
-                });
             });
         });
 
@@ -120,27 +93,6 @@
     to {
         opacity: 1;
         transform: rotateX(0);
-    }
-}
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-10px);
     }
 }
 
@@ -195,7 +147,6 @@ body.dark-mode {
     background: url("{% static 'images/dark-mode.svg' %}") no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 
 body.light-mode {
@@ -204,7 +155,6 @@ body.light-mode {
     background: url("{% static 'images/light-mode.svg' %}") no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 
 .theme-dropdown i {
@@ -233,6 +183,28 @@ body.light-mode .theme-dropdown {
     animation: fadeIn 0.3s ease-in-out;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
 .theme-content a {
     color: white;
     padding: 12px 16px;
@@ -253,28 +225,17 @@ body.light-mode .theme-dropdown {
 }
 
 html, body {
-    overflow-x: hidden; /* Remove horizontal scrollbars */
-    min-height: 100vh;
-    height: 100%;
-    background-attachment: fixed;
+    overflow: hidden; /* Remove vertical and horizontal scrollbars */
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
+    min-height: 100vh;
 }
 
 body.light-mode .theme-content a {
     color: white; /* Ensure the theme content links remain white */
 }
 
-.input-box textarea:focus {
-    border-width: 4.5px; /* Make the border thicker */
-    border-color: rgb(9, 7, 7); /* Change color when needed  */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Optional: Add a shadow effect */
-}
-
-body.light-mode .input-box textarea:focus {
-    border-color: rgba(0, 0, 0, 1); /* Change Color When Needed */
-}
 .wrapper {
     width: 420px;
     background: transparent;
@@ -284,80 +245,16 @@ body.light-mode .input-box textarea:focus {
     color: #fff;
     border-radius: 10px;
     padding: 30px 40px;
-    position: absolute; 
-    top: 10vh;
 }
 
 .wrapper h1 {
-    font-size: 2.25em;
-    text-align: center;
-    color: var(--text-dark);
-}
-.wrapper h2 { 
-    font-size: .75em;
+    font-size: 1.5em;
     text-align: center;
     color: var(--text-dark);
 }
 
 body.light-mode .wrapper h1 {
     color: var(--text-light);
-}
-body.light-mode .wrapper h2 {
-    color: var(--text-light);
-}
-
-/*input boxes*/
-.wrapper .input-box {
-    position: relative;
-    width: 100%;
-    margin: 30px 0;
-}
-
-.input-box textarea {
-    width: 100%;
-    min-height: 50px;
-    background: transparent;
-    border: none;
-    outline: none;
-    border: 2px solid rgba(255, 255, 255, .2);
-    border-radius: 10px;
-    font-size: 16px;
-    color: #fff;
-    padding: 10px 20px;
-    resize: none;
-    overflow: hidden;
-}
-
-.input-box textarea::placeholder {
-    color: white; /* Placeholder text color for dark mode */
-}
-
-body.light-mode .input-box textarea {
-    color: var(--text-light);
-    border-color: rgba(0, 0, 0, .2);
-}
-
-body.light-mode .input-box textarea::placeholder {
-    color: black; /* Placeholder text color for light mode */
-}
-
-.wrapper .btn {
-    width: 100%;
-    height: 45px;
-    background: white; /* Default for dark mode */
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    cursor: pointer;
-    font-size: 16px;
-    color: --background-dark;
-    font-weight: 600;
-}
-
-body.light-mode .wrapper .btn {
-    background: var(--button-background-light); /* Background for light mode */
-    color: var(--button-text-light); /* Text color for light mode */
 }
 
     </style>
