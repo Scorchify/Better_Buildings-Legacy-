@@ -13,18 +13,20 @@ def reporting(request):
 def display(request):
     return render(request, "display.html")
 
-def reportPosted(request):
-    return render(request, "reportPosted.html")
-
-
 #form requests 
-def report(request):
+def reportPosted(request):
+    q1_response = None
+    q2_response = None
+
     if request.method == "POST":
         form = ReportingForm(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect("/reports/")
-        else:
-            form = ReportingForm()
-        return render(request, "reporting.html", {"form": form})
+            # Retrieve cleaned data
+            q1_response = form.cleaned_data['q1']
+            q2_response = form.cleaned_data['q2']
+            return render(request, "reportPosted.html", {"q1_response": q1_response, "q2_response": q2_response})
         
+    else:
+        form = ReportingForm()
 
+    return render(request, "reporting.html", {"form": form, "q1_response": q1_response, "q2_response": q2_response})

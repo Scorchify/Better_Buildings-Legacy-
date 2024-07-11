@@ -26,28 +26,28 @@
     </div>
 
     <div class="wrapper">
-        <form action="/reports/" method ="post">
+        <form action="/reports/" method="post">
             {% csrf_token %}
-            {{ form }}
-        <h1>Report an Issue<h1>
-        <div class="container">
-            <br>
-            <h2>How would you categorize your issue?</h2>
-            <div class="input-box">
-            <input id="q1" type="text" name="q1" value="{{ q1 }}"required>
-            <textarea placeholder="Enter your response here!"></textarea>
+            {{ form.as_p }}
+    
+            <h1>Report an Issue</h1>
+            <div class="container">
+                <br>
+                <h2>How would you categorize your issue?</h2>
+                <div class="input-box">
+                    <textarea id="q1_description" name="q1_description" placeholder="Enter your response here!" required>{{q1}}</textarea>
+                </div>
+                <br>
+                <h2>What is the issue and where is it occurring?</h2>
+                <div class="input-box">
+                    <textarea id="q2_description" name="q2_description" placeholder="Enter your response here!" required>{{q2 }}</textarea>
+                </div>
+                <button type="submit" class="btn">Report</button>
             </div>
-            <br>
-            <h2>What is the issue and where is it occuring?</h2>
-            <div class="input-box">
-            <textarea placeholder="Enter your response here!" required></textarea>
-            <input id="q2" type="text" name="q2" value="{{ q2 }}"required>
-            </div>
-            <button type="submit" class="btn">Report</button>
         </form>
-        </div>
     </div>
-
+    
+    
     <!--JavaScript-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -143,7 +143,6 @@
         transform: translateY(-10px);
     }
 }
-
 
 @keyframes spin-logo {
     0% {
