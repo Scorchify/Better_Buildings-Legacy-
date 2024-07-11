@@ -144,6 +144,22 @@
     }
 }
 
+
+@keyframes spin-logo {
+    0% {
+        transform: rotate(0deg);
+    }
+    30% {
+        transform: rotate(-180deg); /* Counterclockwise */
+    }
+    100% {
+        transform: rotate(720deg); /* Clockwise */
+    }
+}
+.img:hover { 
+    animation: spin-logo 2s ease-in-out;
+}
+
 @font-face {
     font-family: Ubuntu;
     src: url("{% static 'fonts/Ubuntu-Regular.ttf' %}");
