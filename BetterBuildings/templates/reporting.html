@@ -20,19 +20,28 @@
         <div id="theme-content" class="theme-content">
             <a href="#" onclick="setTheme('dark')">Dark Mode</a>
             <a href="#" onclick="setTheme('light')">Light Mode</a>
-            <a href="{% url 'home' %}">Issue Dashboard</a>
-            <a href="{% url 'reporting' %}">Reporting</a>
+            <a href="{% url 'home' %}">Login</a>
+            <a href="{% url 'display' %}">Issue Dashboard</a>
         </div>
     </div>
 
     <div class="wrapper">
-        <form action="/reports/" method="post">
+        <form method="POST">
             {% csrf_token %}
-            {{form}}
+            <h1>How would you categorize your issue?</h1>
+            {{ form.as_p }}
+            {% if form.errors %}
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ field.label }}: {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
             <button type="submit" class="btn">Report</button>
         </form>
     </div>
-    
     <!--JavaScript-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -265,16 +274,6 @@
         body.light-mode .theme-content a {
             color: white; /* Ensure the theme content links remain white */
         }
-
-        .input-box textarea:focus {
-            border-width: 4.5px; /* Make the border thicker */
-            border-color: rgb(9, 7, 7); /* Change color when needed  */
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Optional: Add a shadow effect */
-        }
-
-        body.light-mode .input-box textarea:focus {
-            border-color: rgba(0, 0, 0, 1); /* Change Color When Needed */
-        }
         .wrapper {
             width: 420px;
             background: transparent;
@@ -302,14 +301,9 @@
         body.light-mode .wrapper h1 {
             color: var(--text-light);
         }
+
         body.light-mode .wrapper h2 {
             color: var(--text-light);
-        }
-
-        .input-box {
-            position: relative;
-            width: 100%;
-            margin: 30px 0;
         }
 
         .wrapper .btn {

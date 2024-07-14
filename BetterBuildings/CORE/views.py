@@ -17,6 +17,7 @@ def display(request):
 def reportPosted(request):
     q1_response = None
     q2_response = None
+    form = ReportingForm()
 
     if request.method == "POST":
         form = ReportingForm(request.POST)
@@ -28,5 +29,5 @@ def reportPosted(request):
         
     else:
         form = ReportingForm()
-
+        
     return render(request, "reporting.html", {"form": form, "q1_response": q1_response, "q2_response": q2_response})
