@@ -22,20 +22,21 @@
             <a href="#" onclick="setTheme('light')">Light Mode</a>
             <a href="{% url 'reportPosted' %}">Reporting</a>
             <a href="{% url 'home' %}">Login</a>
-            <a href="{% url 'display'%}">Issue Dashboard</a>
+            <a href="{% url 'display' %}">Issue Dashboard</a>
         </div>
     </div>
-
+    
     <div class="wrapper">
         <div class="container">
-            <h1>Report submitted successfully! </h1>
+            <h1>Thank you!</h1>
             <h2>Your Report:</h2>
-            <h3>Categories: {{q1_response}} </h3> 
-            <h3>Response: {{q2_response}}</h3>
-
-        <div> 
+            <h3>Categories: {{ q1_response }}</h3> 
+            <h3>Response: {{ q2_response }}</h3>
+            <h3>Time of Report: {{ report_time }}</h3>
+            <a href="{% url 'display' %}" class="btn">Dashboard</a>
+        </div>
     </div>
-
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const savedTheme = localStorage.getItem('theme');
@@ -45,13 +46,11 @@
                 setTheme('dark');
             }
 
-            // Add click event to show/hide the dropdown menu
             document.getElementById('theme-icon').addEventListener('click', function() {
                 const themeContent = document.getElementById('theme-content');
                 themeContent.style.display = themeContent.style.display === 'block' ? 'none' : 'block';
             });
 
-            // Hide the dropdown menu when clicking outside of it
             window.addEventListener('click', function(event) {
                 if (!event.target.matches('#theme-icon, #theme-icon *')) {
                     const themeContent = document.getElementById('theme-content');
@@ -70,231 +69,259 @@
     </script>
     <style>
         :root {
-    --background-light: #f0f1f5;
-    --background-dark: #0a0b0f;
-    --text-light: #17181c;
-    --text-dark: #e3e4e8;
-    --link-light: #17181c;
-    --link-dark: #e3e4e8;
-    --button-background-light: #0a0b0f;
-    --button-background-dark: #3558cb;
-    --button-text-light: #fff;
-    --button-text-dark: #101314;
-    --bottom-panel-color: #3457cb;
-    --dropdown-background: #070b21;
-    --sun-outline-color: #101314;
-}
+            --background-light: #f0f1f5;
+            --background-dark: #0a0b0f;
+            --text-light: #17181c;
+            --text-dark: #e3e4e8;
+            --link-light: #17181c;
+            --link-dark: #e3e4e8;
+            --button-background-light: #0a0b0f;
+            --button-background-dark: #ffffff;
+            --button-text-light: #fff;
+            --button-text-dark: #101314;
+            --bottom-panel-color: #3457cb;
+            --dropdown-background: #070b21;
+            --sun-outline-color: #101314;
+        }
 
-/* Page transitions */
-.container {
-    animation: transitionIn 0.75s;
-}
+        .container {
+            animation: transitionIn 0.75s;
+        }
 
-@keyframes transitionIn {
-    from {
-        opacity: 0;
-        transform: rotateX(-10deg);
-    }
-    to {
-        opacity: 1;
-        transform: rotateX(0);
-    }
-}
+        @keyframes transitionIn {
+            from {
+                opacity: 0;
+                transform: rotateX(-10deg);
+            }
+            to {
+                opacity: 1;
+                transform: rotateX(0);
+            }
+        }
 
-@font-face {
-    font-family: Ubuntu;
-    src: url("{% static 'fonts/Ubuntu-Regular.ttf' %}");
-}
+        @font-face {
+            font-family: Ubuntu;
+            src: url("{% static 'fonts/Ubuntu-Regular.ttf' %}");
+        }
 
-@font-face {
-    font-family: Cera;
-    src: url("{% static 'fonts/CeraPro-Regular.otf' %}");
-}
+        @font-face {
+            font-family: Cera;
+            src: url("{% static 'fonts/CeraPro-Regular.otf' %}");
+        }
 
-.header {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: -5vh;
-    left: -3.75vw;
-}
+        .header {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: -5vh;
+            left: -3.75vw;
+        }
 
-.img {
-    height: 150px;
-    width: 150px;
-}
+        .img {
+            height: 150px;
+            width: 150px;
+        }
 
-.Title {
-    font-family: Ubuntu;
-    font-size: 20px;
-    font-weight: 600;
-    margin-left: -3vw;
-}
+        .Title {
+            font-family: Ubuntu;
+            font-size: 20px;
+            font-weight: 600;
+            margin-left: -3vw;
+        }
 
-.theme-dropdown {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    border: 1px solid;
-    border-radius: 10px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-}
+        .theme-dropdown {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            border: 1px solid;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+        }
 
-body.dark-mode {
-    background-color: var(--background-dark);
-    color: var(--text-dark);
-    background: url("{% static 'images/dark-mode.svg' %}") no-repeat;
-    background-size: cover;
-    background-position: center;
-}
+        body.dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+            background: url("{% static 'images/dark-mode.svg' %}") no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
 
-body.light-mode {
-    background-color: var(--background-light);
-    color: var(--text-light);
-    background: url("{% static 'images/light-mode.svg' %}") no-repeat;
-    background-size: cover;
-    background-position: center;
-}
+        body.light-mode {
+            background-color: var(--background-light);
+            color: var(--text-light);
+            background: url("{% static 'images/light-mode.svg' %}") no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
 
-.theme-dropdown i {
-    font-size: 22px;
-}
+        .theme-dropdown i {
+            font-size: 22px;
+        }
 
-body.dark-mode .theme-dropdown {
-    border-color: white;
-}
+        body.dark-mode .theme-dropdown {
+            border-color: white;
+        }
 
-body.light-mode .theme-dropdown {
-    border-color: black;
-}
+        body.light-mode .theme-dropdown {
+            border-color: black;
+        }
 
-.theme-content {
-    display: none;
-    position: absolute;
-    background-color: var(--dropdown-background);
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    font-family: Ubuntu;
-    right: 0;
-    top: calc(100% + 10px);
-    border-radius: 10px;
-    animation: fadeIn 0.3s ease-in-out;
-}
+        .theme-content {
+            display: none;
+            position: absolute;
+            background-color: var(--dropdown-background);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            font-family: Ubuntu;
+            right: 0;
+            top: calc(100% + 10px);
+            border-radius: 10px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-}
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
 
-@keyframes spin-logo {
-    0% {
-        transform: rotate(0deg);
-    }
-    30% {
-        transform: rotate(-180deg); /* Counterclockwise */
-    }
-    100% {
-        transform: rotate(720deg); /* Clockwise */
-    }
-}
-.img:hover { 
-    animation: spin-logo 2s ease-in-out;
-}
+        @keyframes spin-logo {
+            0% {
+                transform: rotate(0deg);
+            }
+            30% {
+                transform: rotate(-180deg);
+            }
+            100% {
+                transform: rotate(720deg);
+            }
+        }
+        
+        .img:hover { 
+            animation: spin-logo 2s ease-in-out;
+        }
 
-.theme-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-family: Ubuntu;
-}
+        .theme-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-family: Ubuntu;
+        }
 
-.theme-content a:hover {
-    background-color: var(--button-background-light);
-}
+        .theme-content a:hover {
+            background-color: var(--button-background-light);
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Ubuntu;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Ubuntu;
+        }
 
-html, body {
-    overflow: hidden; /* Remove vertical and horizontal scrollbars */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+        html, body {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-body.light-mode .theme-content a {
-    color: white; /* Ensure the theme content links remain white */
-}
+        body.light-mode .theme-content a {
+            color: white;
+        }
 
-.wrapper {
-    width: 420px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    color: #fff;
-    border-radius: 10px;
-    padding: 30px 40px;
-}
+        .wrapper {
+            width: 420px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            color: #fff;
+            border-radius: 10px;
+            padding: 30px 40px;
+        }
 
-.wrapper h1 {
-    font-size: 2.25em;
-    text-align: center;
-    color: var(--text-dark);
-}
+        .wrapper h1 {
+            font-size: 2.25em;
+            text-align: center;
+            color: var(--text-dark);
+        }
 
-.wrapper h2 {
-    font-size: 1.5em;
-    color: var(--text-dark);
-}
+        .wrapper h2 {
+            font-size: 1.5em;
+            color: var(--text-dark);
+        }
 
-.wrapper h3 {
-    font-size: 1em;
-    color: var(--text-dark);
-}
+        .wrapper h3 {
+            font-size: 1em;
+            color: var(--text-dark);
+        }
 
-body.light-mode .wrapper h1 {
-    color: var(--text-light);
-}
+        body.light-mode .wrapper h1 {
+            color: var(--text-light);
+        }
 
-body.light-mode .wrapper h2 {
-    color: var(--text-light);
-}
+        body.light-mode .wrapper h2 {
+            color: var(--text-light);
+        }
 
-body.light-mode .wrapper h3 {
-    color: var(--text-light);
-}
+        body.light-mode .wrapper h3 {
+            color: var(--text-light);
+        }
 
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 45px;
+            background: var(--button-background-dark);
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+            cursor: pointer;
+            font-size: 16px;
+            color: var(--button-text-dark);
+            font-weight: 600;
+            margin-top: 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        body.light-mode .btn {
+            background: var(--button-background-light);
+            color: var(--button-text-light);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
     </style>
 </body>
 </html>

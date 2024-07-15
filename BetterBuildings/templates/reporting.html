@@ -26,23 +26,22 @@
     </div>
 
     <div class="wrapper">
-        <form method="POST">
-            {% csrf_token %}
-            <h1>How would you categorize your issue?</h1>
-            {{ form.as_p }}
-            {% if form.errors %}
-                <ul>
-                    {% for field in form %}
-                        {% for error in field.errors %}
-                            <li>{{ field.label }}: {{ error }}</li>
-                        {% endfor %}
-                    {% endfor %}
-                </ul>
-            {% endif %}
-            <button type="submit" class="btn">Report</button>
-        </form>
+        <div class="form-container">
+            <form method="post">
+                {{ form.media }}
+                {% csrf_token %}
+                <h1>Reporting</h1> 
+                <br> 
+                <h2>What is the issue and location?</h2>
+                <br> 
+                {{ form.q1 }}
+                <br> 
+                <h2>How would you categorize your issue?</h2>
+                {{ form.q2 }}
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
     </div>
-    <!--JavaScript-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const savedTheme = localStorage.getItem('theme');
@@ -52,13 +51,11 @@
                 setTheme('dark');
             }
 
-            // Add click event to show/hide the dropdown menu
             document.getElementById('theme-icon').addEventListener('click', function() {
                 const themeContent = document.getElementById('theme-content');
                 themeContent.style.display = themeContent.style.display === 'block' ? 'none' : 'block';
             });
 
-            // Hide the dropdown menu when clicking outside of it
             window.addEventListener('click', function(event) {
                 if (!event.target.matches('#theme-icon, #theme-icon *')) {
                     const themeContent = document.getElementById('theme-content');
@@ -68,7 +65,6 @@
                 }
             });
 
-            // Auto-expand textareas
             const textareas = document.querySelectorAll('textarea');
             textareas.forEach(textarea => {
                 textarea.addEventListener('input', function() {
@@ -101,7 +97,6 @@
             --sun-outline-color: #101314;
         }
 
-        /* Page transitions */
         .container {
             animation: transitionIn 0.75s;
         }
@@ -116,6 +111,7 @@
                 transform: rotateX(0);
             }
         }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -143,12 +139,13 @@
                 transform: rotate(0deg);
             }
             30% {
-                transform: rotate(-180deg); /* Counterclockwise */
+                transform: rotate(-180deg);
             }
             100% {
-                transform: rotate(720deg); /* Clockwise */
+                transform: rotate(720deg);
             }
         }
+
         .img:hover { 
             animation: spin-logo 2s ease-in-out;
         }
@@ -157,7 +154,7 @@
             font-family: Ubuntu;
             src: url("{% static 'fonts/Ubuntu-Regular.ttf' %}");
         }
-
+        
         @font-face {
             font-family: Cera;
             src: url("{% static 'fonts/CeraPro-Regular.otf' %}");
@@ -260,9 +257,16 @@
             box-sizing: border-box;
             font-family: Ubuntu;
         }
+        
+        .form-container select {
+            display: block;
+            margin: 10px auto;
+            width: 30%;
+            max-width: 300px;
+        }
 
         html, body {
-            overflow-x: hidden; /* Remove horizontal scrollbars */
+            overflow-x: hidden;
             min-height: 100vh;
             height: 100%;
             background-attachment: fixed;
@@ -272,8 +276,9 @@
         }
 
         body.light-mode .theme-content a {
-            color: white; /* Ensure the theme content links remain white */
+            color: white;
         }
+
         .wrapper {
             width: 420px;
             background: transparent;
@@ -285,6 +290,27 @@
             padding: 30px 40px;
             position: absolute; 
             top: 10vh;
+            max-height: 80vh;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .form-container {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .form-container textarea {
+            width: 100%;
+            min-height: 100px;
+            box-sizing: border-box;
         }
 
         .wrapper h1 {
@@ -292,6 +318,7 @@
             text-align: center;
             color: var(--text-dark);
         }
+        
         .wrapper h2 { 
             font-size: 1.5em;
             text-align: center;
@@ -305,27 +332,26 @@
         body.light-mode .wrapper h2 {
             color: var(--text-light);
         }
-
-        .wrapper .btn {
+      
+        body.light-mode .wrapper .btn {
+            background: var(--button-background-light);
+            color: var(--button-text-light);
+        }
+        
+        .form-container button.btn {
             width: 100%;
             height: 45px;
-            background: white; /* Default for dark mode */
+            background: white;
             border: none;
             outline: none;
             border-radius: 40px;
             box-shadow: 0 0 10px rgba(0, 0, 0, .1);
             cursor: pointer;
             font-size: 16px;
-            color: --background-dark;
+            color: var(--background-dark);
             font-weight: 600;
+            margin-top: 20px;
         }
-
-        body.light-mode .wrapper .btn {
-            background: var(--button-background-light); /* Background for light mode */
-            color: var(--button-text-light); /* Text color for light mode */
-        }
-
     </style>
 </body>
 </html>
-
