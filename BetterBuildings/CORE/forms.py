@@ -6,6 +6,34 @@ class InputBox(forms.Textarea):
             "all": ["css/input.css"],  
         }
 
+class LoginForm(forms.Form):
+    class Media:
+        css = {
+            "all": ["css/login.css"]
+        }
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={
+            "placeholder": "Student ID",
+            "class": "input-box",
+            "autocomplete": "off",
+            "rows": 2,
+            "cols": 25
+        }),
+        label=''
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            "placeholder": "Password",
+            "class": "input-box",
+            "autocomplete": "off",
+            "rows": 2,
+            "cols": 25
+        }),
+        label=''
+    )
+
+    
+
 class ReportingForm(forms.Form):
     q1 = forms.CharField(
         widget=InputBox(attrs={
@@ -34,3 +62,4 @@ class ReportingForm(forms.Form):
         if data == '':
             raise forms.ValidationError("Please select a valid option.")
         return data
+
