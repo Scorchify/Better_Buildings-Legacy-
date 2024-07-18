@@ -11,9 +11,9 @@ class LoginForm(forms.Form):
         css = {
             "all": ["css/login.css"]
         }
-    username = forms.CharField(
+    Name = forms.CharField(
         widget=forms.TextInput(attrs={
-            "placeholder": "Student ID",
+            "placeholder": "Name (First and Last)",
             "class": "input-box",
             "autocomplete": "off",
             "rows": 2,
@@ -21,9 +21,9 @@ class LoginForm(forms.Form):
         }),
         label=''
     )
-    password = forms.CharField(
+    School = forms.CharField(
         widget=forms.PasswordInput(attrs={
-            "placeholder": "Password",
+            "placeholder": "School",
             "class": "input-box",
             "autocomplete": "off",
             "rows": 2,

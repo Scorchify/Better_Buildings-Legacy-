@@ -37,18 +37,19 @@ def reportPosted(request):
     return render(request, "reporting.html", {"form": form, "q1_response": q1_response, "q2_response": q2_response})
 
 def login(request):
-    std_username = None
-    std_password = None
+    std_name = None
+    std_school = None
     loginform = LoginForm()
 
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
             # cleaned data retrieval
-            std_username = form.cleaned_data['username']
-            std_password = form.cleaned_data['password']
+            std_name = form.cleaned_data['Name']
+            std_school = form.cleaned_data['School']
             #authentication go here in future 
-            return render(request, "display.html", {"std_username": std_username, "std_password": std_password})
+            return render(request, "display.html", {"std_name": std_name, "std_password": std_school})
+        
         else:
             loginform = LoginForm()
 
