@@ -81,7 +81,79 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
+
+   'WheatonHS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'Wheaton.sqlite3',
+    },
+    
+    'MBlairHS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'MBlairHS.sqlite3',
+    },
+
+    'AEinsteinHS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'AEinsteinHS.sqlite3',
+    },
+
+    'JFKHS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'JFKHS.sqlite3',
+    },
+
+    'NorthwoodHS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'NorthwoodHS.sqlite3',
+    },
+
+    #middle schools
+    'SilverSpringIntlMS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'SilverSpringItlMS.sqlite3',
+    },
+
+    'ArgyleMS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'ArgyleMS.sqlite3',
+    },
+
+    'EasternMS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'EasternMS.sqlite3',
+    },
+
+    'TakomaParkMS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'TakomaParkMS.sqlite3',
+    },
+
+    'OdessaShannonMS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'OdessaShannonMS.sqlite3',
+    },
+    
+    'ParklandMS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'ParklandMS.sqlite3',
+    },
+
+    'LoiedermanMS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'LoiedermanMS.sqlite3',
+    },
+
+    'SligoMS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'SligoMS.sqlite3',
+    },
+
+    'NewportMillsMS': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'NewportMillsMS.sqlite3',
+    },
+    
 }
 
 
