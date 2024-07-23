@@ -20,9 +20,11 @@ from CORE import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.login, name='home'),
-    path('reporting/', views.reporting, name='reporting'),
+    path('', views.home, name='home'),
     path('display/', views.display, name='display'),
     path('reports/', views.reportPosted, name='reportPosted'),
+    path('HSLogin/', views.loginHS, name="hsLogin"),
+    path('MSLogin/', views.loginMS, name="msLogin"),
+
     
 ]

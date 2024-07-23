@@ -25,21 +25,14 @@
 
     <div class="wrapper">
         <form method="POST">
-            {{ loginform.media }}
             {% csrf_token %}
+            {{ form.media }}
             <div class="container">
-                <h1>Login</h1>
-                <div class="ibox">
-                    {{ loginform.Name }}
-                    <i class='bx bxs-user icon'></i>
-                </div>
-                <div class="ibox">
-                    {{ loginform.School }}
-                    <i class="fa-solid fa-school icon"></i>
-                </div>
-                <div class="remember-me">
-                    <label><input type="checkbox"> Remember me </label>
-                </div>
+                <h1>School (MS)</h1>
+                
+                <!-- Render the form fields -->
+                {{ form.as_p }}
+
                 <button type="submit" class="btn">Login</button>
             </div>
         </form>
@@ -264,7 +257,7 @@
         }
 
         .wrapper h1 {
-            font-size: 2.25em;
+            font-size: 2em;
             text-align: center;
             color: var(--text-dark);
         }
