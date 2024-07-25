@@ -27,20 +27,19 @@
         <form method="POST">
             {% csrf_token %}
             {{ form.media }}
-            <div class="form-container">
             <div class="container">
-                <h1>School (HS)</h1>
-                <br>
-                <!-- Render the form fields -->
-                 <h2>Select your School:</h2>
-                {{ form.as_p }}
-                <br>
+                <h1>Login</h1>
+                <div class="ibox">
+                    {{ form.Password }}
+                    <i class="fa-solid fa-school icon"></i>
+                </div>
+                <div class="remember-me">
+                    <label><input type="checkbox"> Remember me </label>
+                </div>
                 <button type="submit" class="btn">Login</button>
             </div>
-        </div>
         </form>
-    </div>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const savedTheme = localStorage.getItem('theme');
@@ -50,11 +49,13 @@
                 setTheme('dark');
             }
 
+            // Add click event to show/hide the dropdown menu
             document.getElementById('theme-icon').addEventListener('click', function() {
                 const themeContent = document.getElementById('theme-content');
                 themeContent.style.display = themeContent.style.display === 'block' ? 'none' : 'block';
             });
 
+            // Hide the dropdown menu when clicking outside of it
             window.addEventListener('click', function(event) {
                 if (!event.target.matches('#theme-icon, #theme-icon *')) {
                     const themeContent = document.getElementById('theme-content');
@@ -88,6 +89,7 @@
             --sun-outline-color: #101314;
         }
 
+        /* Page transitions */
         .container {
             animation: transitionIn 0.75s;
         }
@@ -112,19 +114,17 @@
             font-family: Cera;
             src: url("{% static 'fonts/CeraPro-Regular.otf' %}");
         }
-
         @keyframes spin-logo {
             0% {
                 transform: rotate(0deg);
             }
             30% {
-                transform: rotate(-180deg);
+                transform: rotate(-180deg); /* Counterclockwise */
             }
             100% {
-                transform: rotate(720deg);
+                transform: rotate(720deg); /* Clockwise */
             }
         }
-
         .img:hover { 
             animation: spin-logo 2s ease-in-out;
         }
@@ -217,6 +217,17 @@
             }
         }
 
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
+
         .theme-content a {
             color: white;
             padding: 12px 16px;
@@ -245,7 +256,7 @@
         }
 
         body.light-mode .theme-content a {
-            color: white;
+            color: white; 
         }
 
         .wrapper {
@@ -257,42 +268,49 @@
             color: #fff;
             border-radius: 10px;
             padding: 30px 40px;
-        }
-
-        .wrapper h1 {
-            font-size: 2em;
-            text-align: center;
-            color: var(--text-dark);
+            text-align: center; 
         }
 
         .wrapper h2 {
-            font-size: 1.25em;
-            color: var(--text-dark);
+            margin-bottom: 20px;
+            font-family: Ubuntu;
+            font-size: 24px;
+            font-weight: bold;
         }
 
         body.light-mode .wrapper h2 { 
             color: var(--text-light)
         }
 
-        body.light-mode .wrapper h1 {
-            color: var(--text-light);
+        .theme-button {
+            background-color: var(--text-dark);
+            color: var(--background-dark);
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold; 
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+            display: inline-block; 
+            text-decoration: none; 
         }
 
-        .wrapper .remember-me {
-            display: flex;
-            justify-content: space-between;
-            font-size: 14.5px;
-            margin: -15px 0 15px;
-            color: var(--text-dark);
+        body.light-mode .theme-button {
+            background-color: var(--text-light);
+            color: var(--background-light);
         }
 
-        body.light-mode .remember-me {
-            color: var(--text-light);
+        body.dark-mode .theme-button {
+            background-color: var(--text-dark);
+            color: var(--background-dark);
         }
 
-        .remember-me label input {
-            accent-color: #fff;
-            margin-right: 3px;
+        .theme-button:hover {
+            transform: scale(1.05);
+            background-color: var(--button-background-dark);
+            color: var(--button-text-light);
         }
 
         .wrapper .btn {

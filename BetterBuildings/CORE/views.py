@@ -20,24 +20,22 @@ def reporting(request):
 def display(request):
     return render(request, "display.html")
 
-def login(request):
-    std_name = None
-    std_school = None
-    loginform = LoginForm()
+def loginStaff(request):
+    staff_school = None
+    form = LoginForm()
 
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
             # cleaned data retrieval
-            std_name = form.cleaned_data['Name']
-            std_school = form.cleaned_data['School']
+            staff_school = form.cleaned_data['Password']
             #authentication go here in future 
-            return render(request, "display.html", {"std_name": std_name, "std_password": std_school})
+            return render(request, "display.html", {"std_password": staff_school})
         
         else:
-            loginform = LoginForm()
+            form = LoginForm()
 
-    return render(request, "loginMS.html", {"loginform": loginform})
+    return render(request, "staff.html", {"form": form})
 
 #form requests 
 def reportPosted(request):

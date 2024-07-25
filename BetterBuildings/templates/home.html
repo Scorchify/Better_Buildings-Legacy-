@@ -24,9 +24,10 @@
     </div>
 
     <div class="wrapper">
-        <h2>Select your school level</h2>
+        <h2>Select your School Level</h2>
         <a href="{% url 'msLogin' %}" class="theme-button">Middle</a>
         <a href="{% url 'hsLogin' %}" class="theme-button">High</a>
+        <a href="{% url 'stLogin' %}" class="theme-button">Staff</a>
     </div>
 
     <script>
@@ -267,6 +268,10 @@
             font-weight: bold;
         }
 
+        body.light-mode .wrapper h2 { 
+            color: var(--text-light)
+        }
+
         .theme-button {
             background-color: var(--text-dark);
             color: var(--background-dark);
@@ -278,8 +283,8 @@
             font-size: 16px;
             font-weight: bold; /* Make the text a little bolder */
             transition: background-color 0.3s, color 0.3s, transform 0.3s;
-            display: inline-block; /* Display buttons inline-block for anchor tags */
-            text-decoration: none; /* Remove underline from links */
+            display: inline-block; 
+            text-decoration: none; 
         }
 
         body.light-mode .theme-button {

@@ -25,6 +25,7 @@ urlpatterns = [
     path('reports/', views.reportPosted, name='reportPosted'),
     path('HSLogin/', views.loginHS, name="hsLogin"),
     path('MSLogin/', views.loginMS, name="msLogin"),
+    path('STLogin/', views.loginStaff, name ='stLogin'),
 
     
 ]

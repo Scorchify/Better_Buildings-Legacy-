@@ -44,13 +44,13 @@ class loginHSForm(forms.Form):
         widget=forms.Select(attrs={
             "class": "select",
         }),
-        label="Select Your School"
+        label=""
     )
 
     def clean_school(self):
         data = self.cleaned_data['school']
         if data == '':
-            raise forms.ValidationError("Please select a valid option.")
+            raise forms.ValidationError("Select your school.")
         return data
     
 class loginMSForm(forms.Form):
@@ -106,35 +106,25 @@ class loginMSForm(forms.Form):
         widget=forms.Select(attrs={
             "class": "select",
         }),
-        label="Select Your School"
+        label=""
     )
 
     def clean_q2(self):
         data = self.cleaned_data['school']
         if data == '':
-            raise forms.ValidationError("Please select a valid option.")
+            raise forms.ValidationError("Select your school.")
         return data
   
     
 
-class LoginForm(forms.Form): # not used
+class LoginForm(forms.Form):
     class Media:
         css = {
             "all": ["css/login.css"]
         }
-    Name = forms.CharField(
-        widget=forms.TextInput(attrs={
-            "placeholder": "Name (First and Last)",
-            "class": "input-box",
-            "autocomplete": "off",
-            "rows": 2,
-            "cols": 25
-        }),
-        label=''
-    )
-    School = forms.CharField(
+    Password = forms.CharField(
         widget=forms.PasswordInput(attrs={
-            "placeholder": "School",
+            "placeholder": "School-Specific 8 Digit Code",
             "class": "input-box",
             "autocomplete": "off",
             "rows": 2,
