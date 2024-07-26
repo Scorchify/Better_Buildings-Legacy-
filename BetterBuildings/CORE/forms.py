@@ -1,10 +1,6 @@
 from django import forms
+from .models import Report
 
-class InputBox(forms.Textarea):
-    class Media:
-        css = {
-            "all": ["css/input.css"],  
-        }
 
 class loginHSForm(forms.Form):
     class Media:
@@ -135,32 +131,32 @@ class LoginForm(forms.Form):
 
     
 
-class ReportingForm(forms.Form):
-    q1 = forms.CharField(
-        widget=InputBox(attrs={
-            "placeholder": "Enter your response here!",
-            "class": "input-box",
-            "rows": 4,  
-            "cols": 50  
-        }),
-        label=''
-    )
-    q2 = forms.ChoiceField(
-        choices=[
-            ('', 'Select'),  # Default option
-            ('Bathrooms', 'Bathrooms'),
-            ('Building', 'Building'),
-            ('Other', 'Other')
-        ],
-        widget=forms.Select(attrs={
-            "class": "select",
-        }),
-        label="How would you categorize your issue?"
-    )
+class ReportingForm(forms.ModelForm):
+    class Media:
+        css = {
+            "all": ["css/input.css"],  
+        }
+
+    class Meta:
+        model = Report
+        fields = ['q1', 'q2']
+        widgets = {
+            'q1': forms.Textarea(attrs={
+                "placeholder": "Enter your response here!",
+                "class": "input-box",
+                "rows": 4,
+                "cols": 50
+            }),
+            'q2': forms.Select(attrs={
+                "class": "select",
+            }),
+        }
+        labels = {
+            'q2': "How would you categorize your issue?"
+        }
 
     def clean_q2(self):
         data = self.cleaned_data['q2']
         if data == '':
             raise forms.ValidationError("Please select a valid option.")
         return data
-

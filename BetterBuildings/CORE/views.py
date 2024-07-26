@@ -51,7 +51,9 @@ def reportPosted(request):
             q1_response = form.cleaned_data['q1']
             q2_response = form.cleaned_data['q2']
             report_time = timezone.now()
+            form.save()
             return render(request, "reportPosted.html", {"q1_response": q1_response, "q2_response": q2_response, "report_time": report_time})
+        
         
     else:
         form = ReportingForm()
